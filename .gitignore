@@ -1,0 +1,20 @@
+# Python & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv*/
+venv/
+env/
+.pytest_cache/
+
+# Credentials & Secrets (NEVER commit keys)
+.env
+.env.*
+*service_account*.json
+*credentials*.json
+*.pem
+*.key
+
+# Local caches & large generated output datasets
+cache/
+output_dataset/

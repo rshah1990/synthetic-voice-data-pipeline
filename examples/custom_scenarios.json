@@ -1,0 +1,44 @@
+{
+  "scenarios": [
+    {
+      "cid": "custom_01_hindi_customer_support",
+      "title": "Custom Hindi Support Call — Traffic, Bot Echo & Bystander Speech",
+      "pilot_category": "vehicle_traffic",
+      "language": "Hindi",
+      "primary_voice": "Kore",
+      "ambient_categories": ["vehicle_traffic", "appliance_machine"],
+      "ambient_level_db": -20.0,
+      "rt60_s": 0.48,
+      "failure_focus": "Custom scenario template with micro-utterances, bot echo, and compound noise",
+      "turns": [
+        {
+          "text": "नमस्ते सर, मुझे अपने बैंक खाते का स्टेटमेंट चाहिए था।",
+          "voice_mode": "clean",
+          "prosody_style": "normal",
+          "channel_quirk": "none",
+          "primary_gain_db": 0.0,
+          "pause_noise_cats": ["vehicle_traffic", "phone_signal_alarm"],
+          "pause_noise_snr_db": 5.0,
+          "pause_bgv_text": "नमस्ते, क्या आप अपने रजिस्टर्ड मोबाइल नंबर से कॉल कर रहे हैं?",
+          "pause_bgv_voice": "Aoede",
+          "pause_bgv_sir_db": 15.0,
+          "pause_bgv_acoustics": "bot_echo_leak",
+          "pause_bgv_with_noise_cats": ["appliance_machine"]
+        },
+        {
+          "text": "हाँ जी।",
+          "voice_mode": "overlap_noise",
+          "prosody_style": "short_micro",
+          "overlap_noise_cats": ["vehicle_traffic"],
+          "overlap_snr_db": 6.0,
+          "pause_noise_cats": ["vehicle_traffic", "animal"],
+          "pause_noise_snr_db": 4.0,
+          "pause_bgv_text": "अरे भाई गाड़ी थोड़ा साइड में लगाओ!",
+          "pause_bgv_voice": "Fenrir",
+          "pause_bgv_sir_db": 3.0,
+          "pause_bgv_acoustics": "near_field_loud"
+        }
+      ]
+    }
+  ]
+}

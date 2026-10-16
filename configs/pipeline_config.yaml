@@ -1,0 +1,150 @@
+# ==============================================================================
+# Synthetic Voice & Multi-Hazard Audio Data Pipeline Configuration
+# ==============================================================================
+# Pass this file via `--config configs/pipeline_config.yaml` or edit `config.py`.
+# Environment variables (GOOGLE_CLOUD_PROJECT, GOOGLE_APPLICATION_CREDENTIALS,
+# GEMINI_API_KEY, USE_VERTEX_AI, MIN_CONVERSATION_DURATION_S,
+# MAX_CONVERSATION_DURATION_S, TARGET_AVG_CONVERSATION_DURATION_S)
+# automatically override these values if set.
+
+auth:
+  # Set `use_vertex_ai: true` for Google Cloud Vertex AI (Service Account JSON or ADC).
+  # Set `use_vertex_ai: false` if authenticating with `GEMINI_API_KEY`.
+  use_vertex_ai: true
+  project_id: "YOUR_GCP_PROJECT_ID"
+  location: "us-central1"
+  service_account_key_path: ""
+  gemini_api_key: ""
+
+tts:
+  # Primary TTS model via Google GenAI SDK (`google-genai`)
+  tts_model_id: "gemini-3.8-flash-tts"
+  fallback_tts_models:
+    - "gemini-2.5-flash-preview-tts"
+    - "gemini-2.5-pro-preview-tts"
+  # LLM used when dynamically generating new scenario scripts (`--generate-scenarios`)
+  scenario_generator_model_id: "gemini-3.8-flash"
+  fallback_scenario_models:
+    - "gemini-3.5-flash"
+    - "gemini-2.5-flash"
+  tts_max_workers: 3
+  tts_max_retries: 6
+  tts_retry_base_delay_s: 2.0
+  tts_http_timeout_ms: 90000
+
+system_prompts:
+  # System prompt for dynamic LLM scenario script generation (`--generate-scenarios`)
+  scenario_generation_system_prompt: |
+    You are an expert conversational audio dataset architect specializing in realistic Indian and enterprise customer-support telephony conversations.
+
+    Your objective is to generate natural, domain-authentic multi-turn voice conversation scripts designed to stress-test Voice Activity Detection (VAD), noise-cancellation / voice-isolation models, and conversational AI agents across all real-world variations:
+    1. Primary Caller Speech Variations:
+       - Mix full multi-clause explanations with ultra-short 1-word micro-utterances (`prosody_style: "short_micro"`, 0.15s–0.45s, e.g., "हाँ जी", "हूँ", "अच्छा", "बिल्कुल", "Yes", "Okay", "ஆமா").
+       - Include emotional and cadence variations where realistic: `angry_shout` (frustrated customer with +5.5 dB gain & `mic_clipping`), `fast_panicked` (1.20x urgent rate), `slow_hesitant` (0.85x soft/elderly speaker at -4.0 dB), `laugh_chuckle` (mid-turn chuckle), and `hesitation_stutter` (stuttered thought with >350ms mid-sentence pauses).
+       - Include hardware/channel quirks (`channel_quirk: "mic_clipping"` or `"packet_loss"`).
+    2. Competing Background Human Voices (`should_trigger: false`):
+       - Place realistic secondary speech both overlapping the caller (`overlap_bgv_text`) and during caller listening pauses (`pause_bgv_text`) across all 7 acoustic modes: `far_field`, `near_field_loud`, `bystander_backchannel`, `bystander_laugh_cough`, `bot_echo_leak`, `tv_radio_playback`, and `cocktail_dual_talker`.
+    3. Multi-Hazard Background Noise Bursts (`should_trigger: false`):
+       - Layer 2 to 3 simultaneous noise categories per turn/pause from: `vehicle_traffic`, `animal`, `baby_child`, `human_non_speech`, `phone_signal_alarm`, `appliance_machine`, `singing_music`, and `wind_mic_rub`.
+    4. Target Duration Compliance:
+       - Pace the number of turns and listening windows so the rendered conversation audio lands strictly within the configured target duration range (`min_conversation_duration_s` to `max_conversation_duration_s`).
+
+  # System prompt & per-style delivery instructions for TTS synthesis
+  tts_director_system_prompt: |
+    You are a native multilingual voice actor recording a real-world telephone call.
+    Deliver the spoken text with natural, unscripted human conversational cadence, authentic native pronunciation for the script's language, and realistic breath/syllable phrasing. Do not read punctuation marks aloud or add extra words outside the provided transcript.
+
+  enable_tts_style_prompting: false
+  tts_prosody_style_instructions:
+    normal: "Speak in a natural, conversational phone-call tone at a steady pace."
+    short_micro: "Speak as a quick, crisp, natural single-word phone acknowledgment."
+    angry_shout: "Speak with high urgency, sharp frustration, and loud projected vocal energy."
+    fast_panicked: "Speak rapidly with anxious, hurried urgency as if racing against a deadline."
+    slow_hesitant: "Speak slowly, softly, and tentatively with gentle elderly/hesitant cadence."
+    laugh_chuckle: "Deliver with a warm, natural chuckle woven into the start of the phrase."
+    hesitation_stutter: "Speak with natural mid-thought hesitation, pausing briefly as if recalling a detail."
+
+conversation_duration:
+  # Target duration range (in seconds) for each generated voice conversation:
+  # - Short / Showcase range: 35.0s to 60.0s (target avg: 45.0s)
+  # - Long-form production call range: set e.g. 120.0s to 240.0s (target avg: 180.0s)
+  min_conversation_duration_s: 35.0
+  max_conversation_duration_s: 60.0
+  target_avg_conversation_duration_s: 45.0
+  pause_noise_burst_min_s: 2.40
+  pause_noise_burst_max_s: 3.60
+
+audio:
+  native_sr: 16000
+  telephony_sr: 8000
+  export_8khz_telephony: true
+  export_16khz_native: true
+  export_isolated_stems: true  # Also exports isolated primary_voice / bgv / noise / ambient stems
+  target_voice_rms: 0.11       # -19.2 dBFS nominal primary speech RMS
+  peak_ceiling: 0.96           # Peak limiter ceiling to prevent digital clipping on mix
+
+timing:
+  initial_lead_in_s: 1.80      # Clean ambient lead-in before Turn 1
+  final_tail_s: 1.50           # Ambient tail after final event
+  post_voice_guard_s: 0.750    # Silence/ambient guard after primary user turn
+  inter_event_guard_s: 0.650   # Guard between pure noise burst and bystander voice window
+  pre_voice_guard_s: 0.650     # Guard before next primary user turn
+
+ground_truth:
+  voice_merge_gap_s: 0.200     # Intra-turn syllable gaps < 200 ms merge into 1 `voice` segment
+  audio_trim_merge_gap_s: 0.340
+  default_min_island_s: 0.120
+  micro_min_island_s: 0.050    # Preserves sub-250ms 1-word replies ("Haan", "Hmm", "Jee")
+
+variations:
+  # Speaking rate multipliers by prosody_style
+  prosody_speed_multipliers:
+    normal: 1.00
+    short_micro: 1.65          # Sub-500ms 1-word backchannels & micro-utterances
+    fast_panicked: 1.20        # Urgent fast talker (1.20x speed)
+    slow_hesitant: 0.85        # Slow / elderly speaker (0.85x speed)
+    angry_shout: 1.05          # Frustrated / shouted speech (+gain & mic clipping)
+    laugh_chuckle: 1.00        # Mid-turn chuckle/laughter
+    hesitation_stutter: 1.00   # Stuttered speech with >350ms mid-thought silence valleys
+
+  hesitation_pause_s: 0.380    # Mid-sentence silence valley injected on hesitation_stutter
+  mic_clipping_drive: 2.80     # Nonlinear tanh saturation drive for mic_clipping
+  packet_loss_dropout_s: 0.042 # 42ms RTP VoIP frame dropout duration
+  packet_loss_positions: [0.34, 0.68]
+  wind_bandpass_hz: [22.0, 210.0]
+  wind_tanh_drive: 2.20
+
+  # Background speaker & room impulse response (RIR) acoustic profiles
+  acoustic_modes:
+    far_field:
+      direct_gain: 0.65
+      lowpass_hz: 2600.0
+    near_field_loud:
+      rt60_override_s: 0.16
+      direct_gain: 1.35
+      lowpass_hz: 3500.0
+    bystander_backchannel:
+      rt60_override_s: 0.16
+      direct_gain: 1.35
+      lowpass_hz: 3500.0
+    bystander_laugh_cough:
+      rt60_override_s: 0.20
+      direct_gain: 1.25
+      lowpass_hz: 3600.0
+    bot_echo_leak:
+      bandpass_hz: [400.0, 3200.0]
+      tanh_drive: 1.85
+      direct_gain: 0.95
+    tv_radio_playback:
+      bandpass_hz: [320.0, 3300.0]
+      tanh_drive: 1.60
+      direct_gain: 0.80
+    cocktail_dual_talker:
+      stagger_s: 0.25
+      secondary_speaker_weight: 0.92
+
+paths:
+  noise_stems_dir: "./assets/noise_stems"
+  tts_cache_dir: "./cache/tts_cache"
+  output_dir: "./output_dataset"
+  seed: 20261016

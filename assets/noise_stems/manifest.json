@@ -1,0 +1,314 @@
+{
+  "license": "CC-BY-4.0 (ARTPARK-IISc/Vaani-Noise-Event-Dataset)",
+  "sample_rate_hz": 16000,
+  "categories": {
+    "animal": [
+      {
+        "file": "animal/animal_01_barking.wav",
+        "category": "animal",
+        "tag": "<barking>",
+        "source_id": "human_non_speech_06",
+        "duration_s": 0.8
+      },
+      {
+        "file": "animal/animal_02_bird_sound.wav",
+        "category": "animal",
+        "tag": "<bird sound>",
+        "source_id": "animal_09",
+        "duration_s": 0.58
+      },
+      {
+        "file": "animal/animal_03_insect_noise.wav",
+        "category": "animal",
+        "tag": "<insect noise>",
+        "source_id": "animal_01",
+        "duration_s": 0.54
+      },
+      {
+        "file": "animal/animal_04_cow_sound.wav",
+        "category": "animal",
+        "tag": "<cow sound>",
+        "source_id": "animal_13",
+        "duration_s": 0.48
+      },
+      {
+        "file": "animal/animal_05_bird_squawking.wav",
+        "category": "animal",
+        "tag": "<bird squawking>",
+        "source_id": "animal_03",
+        "duration_s": 0.387
+      },
+      {
+        "file": "animal/animal_06_animal_sound.wav",
+        "category": "animal",
+        "tag": "<animal sound>",
+        "source_id": "animal_15",
+        "duration_s": 0.377
+      }
+    ],
+    "appliance_machine": [
+      {
+        "file": "appliance_machine/appliance_machine_01_tv_sound.wav",
+        "category": "appliance_machine",
+        "tag": "<tv sound>",
+        "source_id": "appliance_machine_04",
+        "duration_s": 0.74
+      },
+      {
+        "file": "appliance_machine/appliance_machine_02_machine_sound.wav",
+        "category": "appliance_machine",
+        "tag": "<machine sound>",
+        "source_id": "appliance_machine_02",
+        "duration_s": 0.558
+      },
+      {
+        "file": "appliance_machine/appliance_machine_03_fan_sound.wav",
+        "category": "appliance_machine",
+        "tag": "<fan sound>",
+        "source_id": "appliance_machine_01",
+        "duration_s": 0.52
+      },
+      {
+        "file": "appliance_machine/appliance_machine_04_fan_noise.wav",
+        "category": "appliance_machine",
+        "tag": "<fan noise>",
+        "source_id": "appliance_machine_09",
+        "duration_s": 0.42
+      },
+      {
+        "file": "appliance_machine/appliance_machine_05_machine_noise.wav",
+        "category": "appliance_machine",
+        "tag": "<machine noise>",
+        "source_id": "appliance_machine_07",
+        "duration_s": 0.4
+      },
+      {
+        "file": "appliance_machine/appliance_machine_06_tv_sound.wav",
+        "category": "appliance_machine",
+        "tag": "<tv sound>",
+        "source_id": "appliance_machine_06",
+        "duration_s": 0.62
+      }
+    ],
+    "baby_child": [
+      {
+        "file": "baby_child/baby_child_01_child_talking.wav",
+        "category": "baby_child",
+        "tag": "<child talking>",
+        "source_id": "baby_child_03",
+        "duration_s": 0.829
+      },
+      {
+        "file": "baby_child/baby_child_02_child_yelling.wav",
+        "category": "baby_child",
+        "tag": "<child yelling>",
+        "source_id": "baby_child_01",
+        "duration_s": 0.704
+      },
+      {
+        "file": "baby_child/baby_child_03_baby_crying.wav",
+        "category": "baby_child",
+        "tag": "<baby crying>",
+        "source_id": "human_non_speech_15",
+        "duration_s": 0.62
+      },
+      {
+        "file": "baby_child/baby_child_04_child_crying.wav",
+        "category": "baby_child",
+        "tag": "<child crying>",
+        "source_id": "baby_child_05",
+        "duration_s": 0.606
+      },
+      {
+        "file": "baby_child/baby_child_05_baby_talking.wav",
+        "category": "baby_child",
+        "tag": "<baby talking>",
+        "source_id": "baby_child_15",
+        "duration_s": 0.385
+      },
+      {
+        "file": "baby_child/baby_child_06_child_talking.wav",
+        "category": "baby_child",
+        "tag": "<child talking>",
+        "source_id": "baby_child_03",
+        "duration_s": 0.66
+      }
+    ],
+    "human_non_speech": [
+      {
+        "file": "human_non_speech/human_non_speech_01_breathing.wav",
+        "category": "human_non_speech",
+        "tag": "[breathing]",
+        "source_id": "human_non_speech_07",
+        "duration_s": 0.72
+      },
+      {
+        "file": "human_non_speech/human_non_speech_02_inhaling.wav",
+        "category": "human_non_speech",
+        "tag": "[inhaling]",
+        "source_id": "human_non_speech_10",
+        "duration_s": 0.6
+      },
+      {
+        "file": "human_non_speech/human_non_speech_03_lip_smacking.wav",
+        "category": "human_non_speech",
+        "tag": "[lip_smacking]",
+        "source_id": "singing_music_06",
+        "duration_s": 0.362
+      },
+      {
+        "file": "human_non_speech/human_non_speech_04_breathing.wav",
+        "category": "human_non_speech",
+        "tag": "[breathing]",
+        "source_id": "human_non_speech_07",
+        "duration_s": 0.56
+      },
+      {
+        "file": "human_non_speech/human_non_speech_05_breathing.wav",
+        "category": "human_non_speech",
+        "tag": "[breathing]",
+        "source_id": "human_non_speech_02",
+        "duration_s": 0.56
+      },
+      {
+        "file": "human_non_speech/human_non_speech_06_inhaling.wav",
+        "category": "human_non_speech",
+        "tag": "[inhaling]",
+        "source_id": "human_non_speech_16",
+        "duration_s": 0.5
+      }
+    ],
+    "phone_signal_alarm": [
+      {
+        "file": "phone_signal_alarm/phone_signal_alarm_01_notification_sound.wav",
+        "category": "phone_signal_alarm",
+        "tag": "<notification sound>",
+        "source_id": "phone_signal_alarm_04",
+        "duration_s": 0.98
+      },
+      {
+        "file": "phone_signal_alarm/phone_signal_alarm_02_ringing.wav",
+        "category": "phone_signal_alarm",
+        "tag": "<ringing>",
+        "source_id": "phone_signal_alarm_01",
+        "duration_s": 0.9
+      },
+      {
+        "file": "phone_signal_alarm/phone_signal_alarm_03_phone_beeping.wav",
+        "category": "phone_signal_alarm",
+        "tag": "<phone beeping>",
+        "source_id": "phone_signal_alarm_08",
+        "duration_s": 0.86
+      },
+      {
+        "file": "phone_signal_alarm/phone_signal_alarm_04_phone_ringing.wav",
+        "category": "phone_signal_alarm",
+        "tag": "<phone ringing>",
+        "source_id": "phone_signal_alarm_10",
+        "duration_s": 0.5
+      },
+      {
+        "file": "phone_signal_alarm/phone_signal_alarm_05_bell_sound.wav",
+        "category": "phone_signal_alarm",
+        "tag": "<bell sound>",
+        "source_id": "phone_signal_alarm_02",
+        "duration_s": 0.36
+      },
+      {
+        "file": "phone_signal_alarm/phone_signal_alarm_06_beep.wav",
+        "category": "phone_signal_alarm",
+        "tag": "<beep>",
+        "source_id": "vehicle_traffic_03",
+        "duration_s": 0.36
+      }
+    ],
+    "singing_music": [
+      {
+        "file": "singing_music/singing_music_01_whistling.wav",
+        "category": "singing_music",
+        "tag": "<whistling>",
+        "source_id": "singing_music_08",
+        "duration_s": 1.114
+      },
+      {
+        "file": "singing_music/singing_music_02_music_noise.wav",
+        "category": "singing_music",
+        "tag": "<music noise>",
+        "source_id": "animal_08",
+        "duration_s": 0.56
+      },
+      {
+        "file": "singing_music/singing_music_03_music.wav",
+        "category": "singing_music",
+        "tag": "<music>",
+        "source_id": "singing_music_04",
+        "duration_s": 0.516
+      },
+      {
+        "file": "singing_music/singing_music_04_singing.wav",
+        "category": "singing_music",
+        "tag": "<singing>",
+        "source_id": "singing_music_01",
+        "duration_s": 0.48
+      },
+      {
+        "file": "singing_music/singing_music_05_whistling.wav",
+        "category": "singing_music",
+        "tag": "<whistling>",
+        "source_id": "singing_music_08",
+        "duration_s": 0.96
+      },
+      {
+        "file": "singing_music/singing_music_06_whistling.wav",
+        "category": "singing_music",
+        "tag": "<whistling>",
+        "source_id": "singing_music_03",
+        "duration_s": 0.615
+      }
+    ],
+    "vehicle_traffic": [
+      {
+        "file": "vehicle_traffic/vehicle_traffic_01_traffic_noise.wav",
+        "category": "vehicle_traffic",
+        "tag": "<traffic noise>",
+        "source_id": "vehicle_traffic_12",
+        "duration_s": 0.58
+      },
+      {
+        "file": "vehicle_traffic/vehicle_traffic_02_horn.wav",
+        "category": "vehicle_traffic",
+        "tag": "<horn>",
+        "source_id": "vehicle_traffic_16",
+        "duration_s": 0.56
+      },
+      {
+        "file": "vehicle_traffic/vehicle_traffic_03_vehicle_horn.wav",
+        "category": "vehicle_traffic",
+        "tag": "<vehicle horn>",
+        "source_id": "vehicle_traffic_04",
+        "duration_s": 0.363
+      },
+      {
+        "file": "vehicle_traffic/vehicle_traffic_04_vehicle_sound.wav",
+        "category": "vehicle_traffic",
+        "tag": "<vehicle sound>",
+        "source_id": "baby_child_12",
+        "duration_s": 0.34
+      },
+      {
+        "file": "vehicle_traffic/vehicle_traffic_05_horn.wav",
+        "category": "vehicle_traffic",
+        "tag": "<horn>",
+        "source_id": "vehicle_traffic_03",
+        "duration_s": 0.52
+      },
+      {
+        "file": "vehicle_traffic/vehicle_traffic_06_horn.wav",
+        "category": "vehicle_traffic",
+        "tag": "<horn>",
+        "source_id": "vehicle_traffic_08",
+        "duration_s": 0.511
+      }
+    ]
+  }
+}
