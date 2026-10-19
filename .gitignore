@@ -15,6 +15,9 @@ env/
 *.pem
 *.key
 
-# Local caches & large generated output datasets
+# Local TTS synthesis cache & optional 4-stem debug tracks (27 MB)
+# Note: `output_dataset/audio_16k/`, `output_dataset/audio_8k/`, `output_dataset/ground_truth/`,
+# `output_dataset/scenarios_with_timestamps.json`, `output_dataset/manifest.jsonl`, and
+# `output_dataset/data_summary.md` ARE committed to GitHub as ready-to-use VAD test examples!
 cache/
-output_dataset/
+output_dataset/stems/

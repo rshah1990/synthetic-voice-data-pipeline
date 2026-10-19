@@ -1,42 +1,574 @@
 {
   "scenarios": [
     {
-      "cid": "custom_01_hindi_customer_support",
-      "title": "Custom Hindi Support Call — Traffic, Bot Echo & Bystander Speech",
-      "pilot_category": "vehicle_traffic",
+      "cid": "example_01_hindi_micro_bot_echo_backchannels",
+      "title": "Hindi Speakerphone Call — Micro-Utterances ('Haan Jee', 'Hmm'), AI Bot Echo Leak & Bystander Backchannels",
+      "pilot_category": "background_voice",
       "language": "Hindi",
       "primary_voice": "Kore",
-      "ambient_categories": ["vehicle_traffic", "appliance_machine"],
-      "ambient_level_db": -20.0,
-      "rt60_s": 0.48,
-      "failure_focus": "Custom scenario template with micro-utterances, bot echo, and compound noise",
+      "duration_s": 49.636,
+      "audio_16k": "audio_16k/example_01_hindi_micro_bot_echo_backchannels.wav",
+      "audio_8k": "audio_8k/example_01_hindi_micro_bot_echo_backchannels.wav",
+      "ground_truth_file": "ground_truth/example_01_hindi_micro_bot_echo_backchannels.json",
       "turns": [
         {
-          "text": "नमस्ते सर, मुझे अपने बैंक खाते का स्टेटमेंट चाहिए था।",
+          "text": "नमस्ते सर, मैं विकास शर्मा बोल रहा हूँ, मुझे अपने क्रेडिट कार्ड का इंटरनेशनल ट्रांजेक्शन ऑन करवाना था।",
           "voice_mode": "clean",
+          "overlap_noise_cats": [],
+          "overlap_snr_db": 8.0,
+          "overlap_bgv_text": "",
+          "overlap_bgv_voice": "Fenrir",
+          "overlap_sir_db": 10.0,
+          "primary_gain_db": 0.0,
           "prosody_style": "normal",
           "channel_quirk": "none",
-          "primary_gain_db": 0.0,
-          "pause_noise_cats": ["vehicle_traffic", "phone_signal_alarm"],
+          "pause_noise_cats": [
+            "appliance_machine",
+            "phone_signal_alarm"
+          ],
           "pause_noise_snr_db": 5.0,
-          "pause_bgv_text": "नमस्ते, क्या आप अपने रजिस्टर्ड मोबाइल नंबर से कॉल कर रहे हैं?",
+          "pause_bgv_text": "नमस्ते विकास जी, क्या आप अपने रजिस्टर्ड मोबाइल नंबर से बात कर रहे हैं? कृपया हाँ या ना में बताएं।",
           "pause_bgv_voice": "Aoede",
-          "pause_bgv_sir_db": 15.0,
+          "pause_bgv_sir_db": 16.0,
+          "pause_bgv_with_noise_cats": [
+            "appliance_machine"
+          ],
           "pause_bgv_acoustics": "bot_echo_leak",
-          "pause_bgv_with_noise_cats": ["appliance_machine"]
+          "pause_bgv2_text": "",
+          "pause_bgv2_voice": "Orus",
+          "audio_timestamps": {
+            "primary_voice": {
+              "label": "voice",
+              "should_trigger": true,
+              "start_audio_sec": 1.82,
+              "end_audio_sec": 8.17,
+              "duration_s": 6.35,
+              "voice_islands": [
+                {
+                  "start_audio_sec": 1.82,
+                  "end_audio_sec": 8.17,
+                  "duration_s": 6.35
+                }
+              ]
+            },
+            "overlap_noise": null,
+            "overlap_background_voice": null,
+            "pause_noise": {
+              "label": "noise",
+              "should_trigger": false,
+              "start_audio_sec": 8.94,
+              "end_audio_sec": 11.754,
+              "duration_s": 2.814,
+              "category": "appliance_machine",
+              "tag": "<fan sound>+<fan noise>+<machine sound>"
+            },
+            "pause_background_voice": {
+              "label": "background_voice",
+              "should_trigger": false,
+              "start_audio_sec": 12.404,
+              "end_audio_sec": 18.584,
+              "duration_s": 6.18,
+              "acoustics": "bot_echo_leak",
+              "sir_db": 16.0,
+              "speaker": "Aoede",
+              "transcript": "नमस्ते विकास जी, क्या आप अपने रजिस्टर्ड मोबाइल नंबर से बात कर रहे हैं? कृपया हाँ या ना में बताएं।"
+            }
+          }
         },
         {
           "text": "हाँ जी।",
           "voice_mode": "overlap_noise",
-          "prosody_style": "short_micro",
-          "overlap_noise_cats": ["vehicle_traffic"],
+          "overlap_noise_cats": [
+            "appliance_machine",
+            "vehicle_traffic"
+          ],
           "overlap_snr_db": 6.0,
-          "pause_noise_cats": ["vehicle_traffic", "animal"],
+          "overlap_bgv_text": "",
+          "overlap_bgv_voice": "Fenrir",
+          "overlap_sir_db": 10.0,
+          "primary_gain_db": 0.0,
+          "prosody_style": "short_micro",
+          "channel_quirk": "none",
+          "pause_noise_cats": [
+            "appliance_machine",
+            "human_non_speech"
+          ],
           "pause_noise_snr_db": 4.0,
-          "pause_bgv_text": "अरे भाई गाड़ी थोड़ा साइड में लगाओ!",
+          "pause_bgv_text": "अच्छा भाई!",
           "pause_bgv_voice": "Fenrir",
-          "pause_bgv_sir_db": 3.0,
-          "pause_bgv_acoustics": "near_field_loud"
+          "pause_bgv_sir_db": 1.0,
+          "pause_bgv_with_noise_cats": [
+            "appliance_machine"
+          ],
+          "pause_bgv_acoustics": "bystander_backchannel",
+          "pause_bgv2_text": "",
+          "pause_bgv2_voice": "Orus",
+          "audio_timestamps": {
+            "primary_voice": {
+              "label": "voice",
+              "should_trigger": true,
+              "start_audio_sec": 19.254,
+              "end_audio_sec": 19.514,
+              "duration_s": 0.26,
+              "voice_islands": [
+                {
+                  "start_audio_sec": 19.254,
+                  "end_audio_sec": 19.514,
+                  "duration_s": 0.26
+                }
+              ]
+            },
+            "overlap_noise": {
+              "label": "overlap_noise_with_voice",
+              "start_audio_sec": 19.234,
+              "end_audio_sec": 19.534,
+              "duration_s": 0.3,
+              "category": "appliance_machine",
+              "tag": "<tv sound>+<vehicle horn>",
+              "snr_db": 6.0
+            },
+            "overlap_background_voice": null,
+            "pause_noise": {
+              "label": "noise",
+              "should_trigger": false,
+              "start_audio_sec": 20.284,
+              "end_audio_sec": 23.436,
+              "duration_s": 3.152,
+              "category": "appliance_machine",
+              "tag": "<machine sound>+<tv sound>+<fan sound>"
+            },
+            "pause_background_voice": {
+              "label": "background_voice",
+              "should_trigger": false,
+              "start_audio_sec": 24.086,
+              "end_audio_sec": 25.066,
+              "duration_s": 0.98,
+              "acoustics": "bystander_backchannel",
+              "sir_db": 1.0,
+              "speaker": "Fenrir",
+              "transcript": "अच्छा भाई!"
+            }
+          }
+        },
+        {
+          "text": "हूँ।",
+          "voice_mode": "clean",
+          "overlap_noise_cats": [],
+          "overlap_snr_db": 8.0,
+          "overlap_bgv_text": "",
+          "overlap_bgv_voice": "Fenrir",
+          "overlap_sir_db": 10.0,
+          "primary_gain_db": 0.0,
+          "prosody_style": "short_micro",
+          "channel_quirk": "none",
+          "pause_noise_cats": [
+            "appliance_machine",
+            "vehicle_traffic"
+          ],
+          "pause_noise_snr_db": 4.0,
+          "pause_bgv_text": "क्या आपके कार्ड के आखिरी चार अंक सात दो शून्य चार हैं?",
+          "pause_bgv_voice": "Aoede",
+          "pause_bgv_sir_db": 15.0,
+          "pause_bgv_with_noise_cats": [],
+          "pause_bgv_acoustics": "bot_echo_leak",
+          "pause_bgv2_text": "",
+          "pause_bgv2_voice": "Orus",
+          "audio_timestamps": {
+            "primary_voice": {
+              "label": "voice",
+              "should_trigger": true,
+              "start_audio_sec": 25.736,
+              "end_audio_sec": 26.116,
+              "duration_s": 0.38,
+              "voice_islands": [
+                {
+                  "start_audio_sec": 25.736,
+                  "end_audio_sec": 26.116,
+                  "duration_s": 0.38
+                }
+              ]
+            },
+            "overlap_noise": null,
+            "overlap_background_voice": null,
+            "pause_noise": {
+              "label": "noise",
+              "should_trigger": false,
+              "start_audio_sec": 26.886,
+              "end_audio_sec": 30.309,
+              "duration_s": 3.423,
+              "category": "appliance_machine",
+              "tag": "<fan sound>+<fan noise>+<machine noise>"
+            },
+            "pause_background_voice": {
+              "label": "background_voice",
+              "should_trigger": false,
+              "start_audio_sec": 30.959,
+              "end_audio_sec": 34.529,
+              "duration_s": 3.57,
+              "acoustics": "bot_echo_leak",
+              "sir_db": 15.0,
+              "speaker": "Aoede",
+              "transcript": "क्या आपके कार्ड के आखिरी चार अंक सात दो शून्य चार हैं?"
+            }
+          }
+        },
+        {
+          "text": "अम्म... रुकिए सर... जन्म तिथि... हाँ, पंद्रह अगस्त उन्नीस सौ नब्बे है।",
+          "voice_mode": "overlap_noise",
+          "overlap_noise_cats": [
+            "appliance_machine",
+            "vehicle_traffic"
+          ],
+          "overlap_snr_db": 6.0,
+          "overlap_bgv_text": "",
+          "overlap_bgv_voice": "Fenrir",
+          "overlap_sir_db": 10.0,
+          "primary_gain_db": 0.0,
+          "prosody_style": "hesitation_stutter",
+          "channel_quirk": "none",
+          "pause_noise_cats": [
+            "vehicle_traffic",
+            "phone_signal_alarm"
+          ],
+          "pause_noise_snr_db": 3.0,
+          "pause_bgv_text": "हाँ हाँ, सही है!",
+          "pause_bgv_voice": "Puck",
+          "pause_bgv_sir_db": 0.0,
+          "pause_bgv_with_noise_cats": [
+            "vehicle_traffic"
+          ],
+          "pause_bgv_acoustics": "bystander_backchannel",
+          "pause_bgv2_text": "",
+          "pause_bgv2_voice": "Orus",
+          "audio_timestamps": {
+            "primary_voice": {
+              "label": "voice",
+              "should_trigger": true,
+              "start_audio_sec": 35.199,
+              "end_audio_sec": 41.509,
+              "duration_s": 6.31,
+              "voice_islands": [
+                {
+                  "start_audio_sec": 35.199,
+                  "end_audio_sec": 36.529,
+                  "duration_s": 1.33
+                },
+                {
+                  "start_audio_sec": 37.449,
+                  "end_audio_sec": 38.579,
+                  "duration_s": 1.13
+                },
+                {
+                  "start_audio_sec": 39.319,
+                  "end_audio_sec": 39.619,
+                  "duration_s": 0.3
+                },
+                {
+                  "start_audio_sec": 40.079,
+                  "end_audio_sec": 41.509,
+                  "duration_s": 1.43
+                }
+              ]
+            },
+            "overlap_noise": {
+              "label": "overlap_noise_with_voice",
+              "start_audio_sec": 35.179,
+              "end_audio_sec": 41.529,
+              "duration_s": 6.35,
+              "category": "appliance_machine",
+              "tag": "<machine noise>+<fan noise>+<fan sound>",
+              "snr_db": 6.0
+            },
+            "overlap_background_voice": null,
+            "pause_noise": {
+              "label": "noise",
+              "should_trigger": false,
+              "start_audio_sec": 42.279,
+              "end_audio_sec": 45.526,
+              "duration_s": 3.247,
+              "category": "vehicle_traffic",
+              "tag": "<horn>+<vehicle horn>+<vehicle sound>"
+            },
+            "pause_background_voice": {
+              "label": "background_voice",
+              "should_trigger": false,
+              "start_audio_sec": 46.176,
+              "end_audio_sec": 47.486,
+              "duration_s": 1.31,
+              "acoustics": "bystander_backchannel",
+              "sir_db": 0.0,
+              "speaker": "Puck",
+              "transcript": "हाँ हाँ, सही है!"
+            }
+          }
+        }
+      ],
+      "segments": [
+        {
+          "segment_id": "s00",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 1.82,
+          "end_audio_sec": 8.17,
+          "duration_s": 6.35,
+          "category": "user_voice",
+          "tag": "clean_speech",
+          "overlap_tags": [],
+          "transcript": "नमस्ते सर, मैं विकास शर्मा बोल रहा हूँ, मुझे अपने क्रेडिट कार्ड का इंटरनेशनल ट्रांजेक्शन ऑन करवाना था।"
+        },
+        {
+          "segment_id": "s01",
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 8.94,
+          "end_audio_sec": 11.754,
+          "duration_s": 2.814,
+          "category": "appliance_machine",
+          "tag": "<fan sound>+<fan noise>+<machine sound>",
+          "overlap_tags": [
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<machine sound>",
+            "appliance_machine:<machine noise>",
+            "phone_signal_alarm:<bell sound>",
+            "phone_signal_alarm:<phone beeping>"
+          ],
+          "transcript": ""
+        },
+        {
+          "segment_id": "s02",
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 12.404,
+          "end_audio_sec": 18.584,
+          "duration_s": 6.18,
+          "category": "background_voice",
+          "tag": "SIR 16 dB (bot_echo_leak)",
+          "overlap_tags": [
+            "appliance_machine:<machine noise>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<tv sound>",
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<machine sound>"
+          ],
+          "transcript": "नमस्ते विकास जी, क्या आप अपने रजिस्टर्ड मोबाइल नंबर से बात कर रहे हैं? कृपया हाँ या ना में बताएं।"
+        },
+        {
+          "segment_id": "s03",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 19.254,
+          "end_audio_sec": 19.514,
+          "duration_s": 0.26,
+          "category": "user_voice",
+          "tag": "short_utterance",
+          "overlap_tags": [
+            "prosody:short_micro",
+            "appliance_machine:<tv sound>",
+            "vehicle_traffic:<vehicle horn>"
+          ],
+          "transcript": "हाँ जी।"
+        },
+        {
+          "segment_id": "s04",
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 20.284,
+          "end_audio_sec": 23.436,
+          "duration_s": 3.152,
+          "category": "appliance_machine",
+          "tag": "<machine sound>+<tv sound>+<fan sound>",
+          "overlap_tags": [
+            "appliance_machine:<machine sound>",
+            "appliance_machine:<tv sound>",
+            "appliance_machine:<fan sound>",
+            "human_non_speech:[breathing]",
+            "human_non_speech:[inhaling]",
+            "human_non_speech:[lip_smacking]"
+          ],
+          "transcript": ""
+        },
+        {
+          "segment_id": "s05",
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 24.086,
+          "end_audio_sec": 25.066,
+          "duration_s": 0.98,
+          "category": "background_voice",
+          "tag": "SIR 1 dB (bystander_backchannel)",
+          "overlap_tags": [
+            "appliance_machine:<fan noise>"
+          ],
+          "transcript": "अच्छा भाई!"
+        },
+        {
+          "segment_id": "s06",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 25.736,
+          "end_audio_sec": 26.116,
+          "duration_s": 0.38,
+          "category": "user_voice",
+          "tag": "short_utterance",
+          "overlap_tags": [
+            "prosody:short_micro"
+          ],
+          "transcript": "हूँ।"
+        },
+        {
+          "segment_id": "s07",
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 26.886,
+          "end_audio_sec": 30.309,
+          "duration_s": 3.423,
+          "category": "appliance_machine",
+          "tag": "<fan sound>+<fan noise>+<machine noise>",
+          "overlap_tags": [
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<machine noise>",
+            "vehicle_traffic:<vehicle horn>",
+            "vehicle_traffic:<horn>",
+            "vehicle_traffic:<vehicle sound>"
+          ],
+          "transcript": ""
+        },
+        {
+          "segment_id": "s08",
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 30.959,
+          "end_audio_sec": 34.529,
+          "duration_s": 3.57,
+          "category": "background_voice",
+          "tag": "SIR 15 dB (bot_echo_leak)",
+          "overlap_tags": [],
+          "transcript": "क्या आपके कार्ड के आखिरी चार अंक सात दो शून्य चार हैं?"
+        },
+        {
+          "segment_id": "s09",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 35.199,
+          "end_audio_sec": 36.529,
+          "duration_s": 1.33,
+          "category": "user_voice",
+          "tag": "hesitant_speech",
+          "overlap_tags": [
+            "prosody:hesitation_stutter",
+            "appliance_machine:<machine noise>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<tv sound>",
+            "appliance_machine:<machine sound>",
+            "vehicle_traffic:<traffic noise>",
+            "vehicle_traffic:<horn>",
+            "vehicle_traffic:<vehicle sound>"
+          ],
+          "transcript": "अम्म... रुकिए सर... जन्म तिथि... हाँ, पंद्रह अगस्त उन्नीस सौ नब्बे है।"
+        },
+        {
+          "segment_id": "s10",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 37.449,
+          "end_audio_sec": 38.579,
+          "duration_s": 1.13,
+          "category": "user_voice",
+          "tag": "hesitant_speech",
+          "overlap_tags": [
+            "prosody:hesitation_stutter",
+            "appliance_machine:<machine noise>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<tv sound>",
+            "appliance_machine:<machine sound>",
+            "vehicle_traffic:<traffic noise>",
+            "vehicle_traffic:<horn>",
+            "vehicle_traffic:<vehicle sound>"
+          ],
+          "transcript": "अम्म... रुकिए सर... जन्म तिथि... हाँ, पंद्रह अगस्त उन्नीस सौ नब्बे है।"
+        },
+        {
+          "segment_id": "s11",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 39.319,
+          "end_audio_sec": 39.619,
+          "duration_s": 0.3,
+          "category": "user_voice",
+          "tag": "hesitant_speech",
+          "overlap_tags": [
+            "prosody:hesitation_stutter",
+            "appliance_machine:<machine noise>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<tv sound>",
+            "appliance_machine:<machine sound>",
+            "vehicle_traffic:<traffic noise>",
+            "vehicle_traffic:<horn>",
+            "vehicle_traffic:<vehicle sound>"
+          ],
+          "transcript": "अम्म... रुकिए सर... जन्म तिथि... हाँ, पंद्रह अगस्त उन्नीस सौ नब्बे है।"
+        },
+        {
+          "segment_id": "s12",
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 40.079,
+          "end_audio_sec": 41.509,
+          "duration_s": 1.43,
+          "category": "user_voice",
+          "tag": "hesitant_speech",
+          "overlap_tags": [
+            "prosody:hesitation_stutter",
+            "appliance_machine:<machine noise>",
+            "appliance_machine:<fan noise>",
+            "appliance_machine:<fan sound>",
+            "appliance_machine:<tv sound>",
+            "appliance_machine:<machine sound>",
+            "vehicle_traffic:<traffic noise>",
+            "vehicle_traffic:<horn>",
+            "vehicle_traffic:<vehicle sound>"
+          ],
+          "transcript": "अम्म... रुकिए सर... जन्म तिथि... हाँ, पंद्रह अगस्त उन्नीस सौ नब्बे है।"
+        },
+        {
+          "segment_id": "s13",
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 42.279,
+          "end_audio_sec": 45.526,
+          "duration_s": 3.247,
+          "category": "vehicle_traffic",
+          "tag": "<horn>+<vehicle horn>+<vehicle sound>",
+          "overlap_tags": [
+            "vehicle_traffic:<horn>",
+            "vehicle_traffic:<vehicle horn>",
+            "vehicle_traffic:<vehicle sound>",
+            "phone_signal_alarm:<notification sound>",
+            "phone_signal_alarm:<phone ringing>",
+            "phone_signal_alarm:<bell sound>",
+            "phone_signal_alarm:<phone beeping>"
+          ],
+          "transcript": ""
+        },
+        {
+          "segment_id": "s14",
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 46.176,
+          "end_audio_sec": 47.486,
+          "duration_s": 1.31,
+          "category": "background_voice",
+          "tag": "SIR 0 dB (bystander_backchannel)",
+          "overlap_tags": [
+            "vehicle_traffic:<vehicle sound>",
+            "vehicle_traffic:<vehicle horn>"
+          ],
+          "transcript": "हाँ हाँ, सही है!"
         }
       ]
     }

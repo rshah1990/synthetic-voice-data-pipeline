@@ -20,13 +20,11 @@ tts:
   # Primary TTS model via Google GenAI SDK (`google-genai`)
   tts_model_id: "gemini-3.8-flash-tts"
   fallback_tts_models:
-    - "gemini-2.5-flash-preview-tts"
-    - "gemini-2.5-pro-preview-tts"
-  # LLM used when dynamically generating new scenario scripts (`--generate-scenarios`)
+    - "gemini-3.8-flash-tts"
+  # Default LLM used when dynamically generating new scenario scripts (`--generate-scenarios`)
   scenario_generator_model_id: "gemini-3.8-flash"
   fallback_scenario_models:
-    - "gemini-3.5-flash"
-    - "gemini-2.5-flash"
+    - "gemini-3.8-flash"
   tts_max_workers: 3
   tts_max_retries: 6
   tts_retry_base_delay_s: 2.0

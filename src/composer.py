@@ -289,8 +289,21 @@ def build_scenario_call(
     noise_events_meta: list[dict[str, Any]] = []
     transcript_parts: list[str] = []
 
+    # Track per-turn exact audio timestamps (`start_audio_sec` / `end_audio_sec`)
+    turns_with_timestamps: list[dict[str, Any]] = [t.to_dict() if hasattr(t, "to_dict") else dict(t.__dict__) for t in sc.turns]
+    for td in turns_with_timestamps:
+        td["audio_timestamps"] = {
+            "primary_voice": None,
+            "overlap_noise": None,
+            "overlap_background_voice": None,
+            "pause_noise": None,
+            "pause_background_voice": None,
+        }
+
     for ev in timeline_events:
         i0 = int(round(ev["start_s"] * sr))
+        t_idx = ev["turn_idx"]
+        turn_ts = turns_with_timestamps[t_idx]["audio_timestamps"] if t_idx < len(turns_with_timestamps) else None
         if ev["kind"] == "primary_turn":
             tspec: CallTurnSpec = ev["spec"]
             p_gain = target_voice_rms * (10.0 ** (tspec.primary_gain_db / 20.0))
@@ -334,13 +347,27 @@ def build_scenario_call(
                 ov_gain = target_voice_rms * (10.0 ** (-tspec.overlap_snr_db / 20.0))
                 stem_noise[i0:i1] += ov_noise_norm[: i1 - i0] * ov_gain
                 overlap_tags.extend(ov_utags)
+                ov_s = round(ev["start_s"], 3)
+                ov_e = round(ev["end_s"], 3)
                 noise_events_meta.append({
                     "category": ov_cat,
                     "tag": ov_tag,
-                    "start": round(ev["start_s"], 3),
-                    "end": round(ev["end_s"], 3),
+                    "start": ov_s,
+                    "end": ov_e,
+                    "start_audio_sec": ov_s,
+                    "end_audio_sec": ov_e,
                     "event_type": "overlap_with_voice",
                 })
+                if turn_ts is not None:
+                    turn_ts["overlap_noise"] = {
+                        "label": "overlap_noise_with_voice",
+                        "start_audio_sec": ov_s,
+                        "end_audio_sec": ov_e,
+                        "duration_s": round(ov_e - ov_s, 3),
+                        "category": ov_cat,
+                        "tag": ov_tag,
+                        "snr_db": tspec.overlap_snr_db,
+                    }
 
             # Overlapping competing background speaker during user speech
             if tspec.voice_mode == "overlap_bgv_and_noise" and tspec.overlap_bgv_text:
@@ -353,13 +380,27 @@ def build_scenario_call(
                 b1 = min(i1, i0 + len(ov_bg_wet))
                 stem_bgv[i0:b1] += ov_bg_wet[: b1 - i0] * bg_gain
                 overlap_tags.append(f"background_voice:SIR {tspec.overlap_sir_db:g} dB")
+                ov_bs = round(ev["start_s"], 3)
+                ov_be = round(b1 / sr, 3)
                 interferer_windows.append({
                     "type": "interferer_overlap",
-                    "start": round(ev["start_s"], 3),
-                    "end": round(b1 / sr, 3),
+                    "start": ov_bs,
+                    "end": ov_be,
+                    "start_audio_sec": ov_bs,
+                    "end_audio_sec": ov_be,
                     "sir_db": tspec.overlap_sir_db,
                     "speaker": tspec.overlap_bgv_voice,
                 })
+                if turn_ts is not None:
+                    turn_ts["overlap_background_voice"] = {
+                        "label": "overlap_background_voice_with_voice",
+                        "start_audio_sec": ov_bs,
+                        "end_audio_sec": ov_be,
+                        "duration_s": round(ov_be - ov_bs, 3),
+                        "sir_db": tspec.overlap_sir_db,
+                        "speaker": tspec.overlap_bgv_voice,
+                        "transcript": tspec.overlap_bgv_text,
+                    }
 
             # Ground-truth segment tag classification
             if tspec.prosody_style == "short_micro":
@@ -390,10 +431,16 @@ def build_scenario_call(
             for rs, re_ in ev["rel_speech"]:
                 all_speech_spans.append([ev["start_s"] + rs, ev["start_s"] + re_])
 
+            turn_islands_ts: list[dict[str, float]] = []
             for rs, re_ in ev["rel_islands"]:
                 abs_s = round(ev["start_s"] + rs, 3)
                 abs_e = round(ev["start_s"] + re_, 3)
                 speech_segments.append([abs_s, abs_e])
+                turn_islands_ts.append({
+                    "start_audio_sec": abs_s,
+                    "end_audio_sec": abs_e,
+                    "duration_s": round(abs_e - abs_s, 3),
+                })
                 seg_dict: dict[str, Any] = {
                     "label": "voice",
                     "should_trigger": True,
@@ -402,6 +449,8 @@ def build_scenario_call(
                     "overlap_tags": list(overlap_tags),
                     "start": abs_s,
                     "end": abs_e,
+                    "start_audio_sec": abs_s,
+                    "end_audio_sec": abs_e,
                     "duration_s": round(abs_e - abs_s, 3),
                     "clip_start": False,
                     "rel_loudness_db": round(float(tspec.primary_gain_db), 1),
@@ -417,7 +466,20 @@ def build_scenario_call(
                     "text": tspec.text,
                     "start": abs_s,
                     "end": abs_e,
+                    "start_audio_sec": abs_s,
+                    "end_audio_sec": abs_e,
                 })
+            if turn_ts is not None and turn_islands_ts:
+                turn_ts["primary_voice"] = {
+                    "label": "voice",
+                    "should_trigger": True,
+                    "start_audio_sec": turn_islands_ts[0]["start_audio_sec"],
+                    "end_audio_sec": turn_islands_ts[-1]["end_audio_sec"],
+                    "duration_s": round(
+                        turn_islands_ts[-1]["end_audio_sec"] - turn_islands_ts[0]["start_audio_sec"], 3
+                    ),
+                    "voice_islands": turn_islands_ts,
+                }
 
         elif ev["kind"] == "pause_noise":
             n_sig = ev["audio_norm"] * target_voice_rms * (10.0 ** (-ev["snr_db"] / 20.0))
@@ -433,6 +495,8 @@ def build_scenario_call(
                 "overlap_tags": ev["used_tags"],
                 "start": s0,
                 "end": s1,
+                "start_audio_sec": s0,
+                "end_audio_sec": s1,
                 "duration_s": round(s1 - s0, 3),
                 "clip_start": False,
                 "rel_loudness_db": round(-float(ev["snr_db"]), 1),
@@ -443,8 +507,20 @@ def build_scenario_call(
                 "tag": ev["tag"],
                 "start": s0,
                 "end": s1,
+                "start_audio_sec": s0,
+                "end_audio_sec": s1,
                 "event_type": "pure_noise",
             })
+            if turn_ts is not None:
+                turn_ts["pause_noise"] = {
+                    "label": "noise",
+                    "should_trigger": False,
+                    "start_audio_sec": s0,
+                    "end_audio_sec": s1,
+                    "duration_s": round(s1 - s0, 3),
+                    "category": ev["category"],
+                    "tag": ev["tag"],
+                }
 
         elif ev["kind"] == "pause_bgv":
             bg_sig = ev["audio_norm"] * target_voice_rms * (10.0 ** (-ev["sir_db"] / 20.0))
@@ -466,6 +542,8 @@ def build_scenario_call(
                 "overlap_tags": ev["co_tags"],
                 "start": s0,
                 "end": s1,
+                "start_audio_sec": s0,
+                "end_audio_sec": s1,
                 "duration_s": round(s1 - s0, 3),
                 "clip_start": False,
                 "rel_loudness_db": round(-float(ev["sir_db"]), 1),
@@ -477,9 +555,23 @@ def build_scenario_call(
                 "acoustics": ac_mode,
                 "start": s0,
                 "end": s1,
+                "start_audio_sec": s0,
+                "end_audio_sec": s1,
                 "sir_db": float(ev["sir_db"]),
                 "speaker": ev["voice_name"],
             })
+            if turn_ts is not None:
+                turn_ts["pause_background_voice"] = {
+                    "label": "background_voice",
+                    "should_trigger": False,
+                    "start_audio_sec": s0,
+                    "end_audio_sec": s1,
+                    "duration_s": round(s1 - s0, 3),
+                    "acoustics": ac_mode,
+                    "sir_db": float(ev["sir_db"]),
+                    "speaker": ev["voice_name"],
+                    "transcript": ev["text"],
+                }
 
     # Combine all 4 stems and apply peak limiter guard
     mix = stem_primary + stem_bgv + stem_noise + stem_ambient
@@ -533,6 +625,7 @@ def build_scenario_call(
         "speech_segments": speech_segments,
         "pure_noise_intervals": [n for n in noise_events_meta if n["event_type"] == "pure_noise"],
         "noise_events": noise_events_meta,
+        "turns_with_timestamps": turns_with_timestamps,
         "segments": segments,
         "events": segments,
         "interferer": {
@@ -642,6 +735,44 @@ def write_dataset_outputs(
         encoding="utf-8",
     )
 
+    # Also write `scenarios_with_timestamps.json` so users can see the turn-by-turn scenario config
+    # side-by-side with exact `start_audio_sec` and `end_audio_sec` for every voice, noise, and background_voice event
+    scenarios_with_ts = []
+    for item in items:
+        cid = item["cid"]
+        gt = item["gt"]
+        scenarios_with_ts.append({
+            "cid": cid,
+            "title": gt["title"],
+            "pilot_category": gt["pilot_category"],
+            "language": gt["source"]["language"],
+            "primary_voice": gt["source"]["primary_voice"],
+            "duration_s": gt["duration_s"],
+            "audio_16k": f"audio_16k/{cid}.wav" if cfg.export_16khz_native else None,
+            "audio_8k": f"audio_8k/{cid}.wav" if cfg.export_8khz_telephony else None,
+            "ground_truth_file": f"ground_truth/{cid}.json",
+            "turns": gt.get("turns_with_timestamps", []),
+            "segments": [
+                {
+                    "segment_id": s["segment_id"],
+                    "label": s["label"],
+                    "should_trigger": s["should_trigger"],
+                    "start_audio_sec": s["start_audio_sec"],
+                    "end_audio_sec": s["end_audio_sec"],
+                    "duration_s": s["duration_s"],
+                    "category": s["category"],
+                    "tag": s["tag"],
+                    "overlap_tags": s.get("overlap_tags", []),
+                    "transcript": s.get("transcript", ""),
+                }
+                for s in gt["segments"]
+            ],
+        })
+    (out_dir / "scenarios_with_timestamps.json").write_text(
+        json.dumps({"scenarios": scenarios_with_ts}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
     avg_dur_s = tot_dur / max(1, len(items))
     min_actual_s = min((float(r["duration_s"]) for r in manifest_rows), default=0.0)
     max_actual_s = max((float(r["duration_s"]) for r in manifest_rows), default=0.0)
@@ -654,6 +785,7 @@ def write_dataset_outputs(
         f"- **Configured Conversation Duration Range**: **`{cfg.min_conversation_duration_s:.1f}s – {cfg.max_conversation_duration_s:.1f}s`** (Target Avg: **`{cfg.target_avg_conversation_duration_s:.1f}s`**)",
         f"- **Actual Conversation Duration Range**: **`{min_actual_s:.1f}s – {max_actual_s:.1f}s`** (Actual Avg: **`{avg_dur_s:.1f}s`**)",
         f"- **TTS Engine**: **{cfg.tts_model_id}** (Google GenAI SDK `google-genai`)",
+        f"- **Scenario Generator LLM**: **{cfg.scenario_generator_model_id}**",
         f"- **Sample Rates Exported**: `16 kHz` wideband (`audio_16k/*.wav`) & `8 kHz` telephony (`audio_8k/*.wav`)",
         "",
         "## Ground-Truth Segment Breakdown",
@@ -675,6 +807,30 @@ def write_dataset_outputs(
             f"| `{row['id']}` | {row['language']} | `{row['primary_voice']}` | {row['failure_focus']} | {row['duration_s']:.1f}s | {row['n_voice']} | {row['n_noise']} | {row['n_background_voice']} |"
         )
     lines.append("")
+    lines.append("## Per-Call Ground-Truth Segment Timelines (`start_audio_sec` → `end_audio_sec`)")
+    lines.append("")
+    for item in items:
+        cid = item["cid"]
+        gt = item["gt"]
+        lines.append(f"### `{cid}` ({gt['source']['language']}, `{gt['duration_s']:.2f}s`)")
+        lines.append(
+            f"- **Audio Files**: [`audio_16k/{cid}.wav`](audio_16k/{cid}.wav) | [`audio_8k/{cid}.wav`](audio_8k/{cid}.wav) | **Ground Truth JSON**: [`ground_truth/{cid}.json`](ground_truth/{cid}.json)"
+        )
+        lines.append("")
+        lines.append(
+            "| Seg ID | `start_audio_sec` | `end_audio_sec` | `duration_s` | `label` | `should_trigger` | Category / Tag | Transcript / Overlapping Events |"
+        )
+        lines.append("| :--- | ---: | ---: | ---: | :--- | :---: | :--- | :--- |")
+        for s in gt["segments"]:
+            trig = "**`true` (`1`)**" if s["should_trigger"] else "`false` (`0`)"
+            detail = s.get("transcript", "") or ", ".join(s.get("overlap_tags", []))
+            if s.get("transcript") and s.get("overlap_tags"):
+                detail = f"{s['transcript']} *(overlaps: {', '.join(s['overlap_tags'])})*"
+            lines.append(
+                f"| `{s['segment_id']}` | `{s['start_audio_sec']:.3f}s` | `{s['end_audio_sec']:.3f}s` | `{s['duration_s']:.3f}s` | `{s['label']}` | {trig} | `{s['category']}` / `{s['tag']}` | {detail} |"
+            )
+        lines.append("")
+
     (out_dir / "data_summary.md").write_text("\n".join(lines), encoding="utf-8")
 
     return {

@@ -1,0 +1,909 @@
+{
+  "id": "example_04_hindi_home_tv_kids_music",
+  "kind": "synthetic_multi_variation_call",
+  "title": "Busy Indian Home — TV News Broadcast Playback, Baby Crying, Music & Family Chatter",
+  "failure_focus": "TV/Radio broadcast playback saturation + baby crying + music + overlapping family speech",
+  "split": "test",
+  "source": {
+    "tts_model": "gemini-3.8-flash-tts",
+    "primary_voice": "Charon",
+    "noise_source": "Bundled CC-BY-4.0 VAANI Stems + Procedural Acoustics",
+    "language": "Hindi"
+  },
+  "pilot_category": "baby_child",
+  "native_sr": 16000,
+  "telephony_sr": 8000,
+  "duration_s": 38.697,
+  "target_duration_range_s": {
+    "min_s": 35.0,
+    "max_s": 60.0,
+    "target_avg_s": 45.0
+  },
+  "noise_floor_db": -30.0,
+  "transcript_raw": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है। हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+  "transcript_clean": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है। हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+  "words": [
+    {
+      "text": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "start": 1.82,
+      "end": 2.22,
+      "start_audio_sec": 1.82,
+      "end_audio_sec": 2.22
+    },
+    {
+      "text": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "start": 2.58,
+      "end": 5.66,
+      "start_audio_sec": 2.58,
+      "end_audio_sec": 5.66
+    },
+    {
+      "text": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "start": 5.99,
+      "end": 8.0,
+      "start_audio_sec": 5.99,
+      "end_audio_sec": 8.0
+    },
+    {
+      "text": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "start": 17.466,
+      "end": 20.256,
+      "start_audio_sec": 17.466,
+      "end_audio_sec": 20.256
+    },
+    {
+      "text": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "start": 20.596,
+      "end": 23.656,
+      "start_audio_sec": 20.596,
+      "end_audio_sec": 23.656
+    }
+  ],
+  "speech_segments": [
+    [
+      1.82,
+      2.22
+    ],
+    [
+      2.58,
+      5.66
+    ],
+    [
+      5.99,
+      8.0
+    ],
+    [
+      17.466,
+      20.256
+    ],
+    [
+      20.596,
+      23.656
+    ]
+  ],
+  "pure_noise_intervals": [
+    {
+      "category": "appliance_machine",
+      "tag": "<tv sound>+<fan noise>+<child talking>",
+      "start": 8.77,
+      "end": 12.326,
+      "start_audio_sec": 8.77,
+      "end_audio_sec": 12.326,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "baby_child",
+      "tag": "<baby crying>+<baby talking>+<tv sound>",
+      "start": 24.426,
+      "end": 27.381,
+      "start_audio_sec": 24.426,
+      "end_audio_sec": 27.381,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "appliance_machine",
+      "tag": "<machine noise>+<machine sound>+<tv sound>",
+      "start": 32.981,
+      "end": 36.547,
+      "start_audio_sec": 32.981,
+      "end_audio_sec": 36.547,
+      "event_type": "pure_noise"
+    }
+  ],
+  "noise_events": [
+    {
+      "category": "appliance_machine",
+      "tag": "<tv sound>+<fan noise>+<child talking>",
+      "start": 8.77,
+      "end": 12.326,
+      "start_audio_sec": 8.77,
+      "end_audio_sec": 12.326,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "baby_child",
+      "tag": "<baby crying>+<baby talking>+<child talking>",
+      "start": 17.446,
+      "end": 23.676,
+      "start_audio_sec": 17.446,
+      "end_audio_sec": 23.676,
+      "event_type": "overlap_with_voice"
+    },
+    {
+      "category": "baby_child",
+      "tag": "<baby crying>+<baby talking>+<tv sound>",
+      "start": 24.426,
+      "end": 27.381,
+      "start_audio_sec": 24.426,
+      "end_audio_sec": 27.381,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "appliance_machine",
+      "tag": "<machine noise>+<machine sound>+<tv sound>",
+      "start": 32.981,
+      "end": 36.547,
+      "start_audio_sec": 32.981,
+      "end_audio_sec": 36.547,
+      "event_type": "pure_noise"
+    }
+  ],
+  "turns_with_timestamps": [
+    {
+      "text": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "voice_mode": "clean",
+      "overlap_noise_cats": [],
+      "overlap_snr_db": 8.0,
+      "overlap_bgv_text": "",
+      "overlap_bgv_voice": "Fenrir",
+      "overlap_sir_db": 10.0,
+      "primary_gain_db": 0.0,
+      "prosody_style": "normal",
+      "channel_quirk": "none",
+      "pause_noise_cats": [
+        "appliance_machine",
+        "baby_child",
+        "singing_music"
+      ],
+      "pause_noise_snr_db": 4.0,
+      "pause_bgv_text": "अरे रिमोट कहाँ रख दिया? न्यूज़ चैनल लगाओ ज़रा पांच मिनट के लिए।",
+      "pause_bgv_voice": "Aoede",
+      "pause_bgv_sir_db": 8.0,
+      "pause_bgv_with_noise_cats": [
+        "appliance_machine",
+        "singing_music"
+      ],
+      "pause_bgv_acoustics": "tv_radio_playback",
+      "pause_bgv2_text": "",
+      "pause_bgv2_voice": "Orus",
+      "audio_timestamps": {
+        "primary_voice": {
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 1.82,
+          "end_audio_sec": 8.0,
+          "duration_s": 6.18,
+          "voice_islands": [
+            {
+              "start_audio_sec": 1.82,
+              "end_audio_sec": 2.22,
+              "duration_s": 0.4
+            },
+            {
+              "start_audio_sec": 2.58,
+              "end_audio_sec": 5.66,
+              "duration_s": 3.08
+            },
+            {
+              "start_audio_sec": 5.99,
+              "end_audio_sec": 8.0,
+              "duration_s": 2.01
+            }
+          ]
+        },
+        "overlap_noise": null,
+        "overlap_background_voice": null,
+        "pause_noise": {
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 8.77,
+          "end_audio_sec": 12.326,
+          "duration_s": 3.556,
+          "category": "appliance_machine",
+          "tag": "<tv sound>+<fan noise>+<child talking>"
+        },
+        "pause_background_voice": {
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 12.976,
+          "end_audio_sec": 16.796,
+          "duration_s": 3.82,
+          "acoustics": "tv_radio_playback",
+          "sir_db": 8.0,
+          "speaker": "Aoede",
+          "transcript": "अरे रिमोट कहाँ रख दिया? न्यूज़ चैनल लगाओ ज़रा पांच मिनट के लिए।"
+        }
+      }
+    },
+    {
+      "text": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "voice_mode": "overlap_bgv_and_noise",
+      "overlap_noise_cats": [
+        "baby_child",
+        "appliance_machine",
+        "singing_music"
+      ],
+      "overlap_snr_db": 6.0,
+      "overlap_bgv_text": "मम्मी मेरा स्कूल बैग कहाँ रखा है? मुझे अपनी ड्राइंग बुक नहीं मिल रही है!",
+      "overlap_bgv_voice": "Leda",
+      "overlap_sir_db": 9.0,
+      "primary_gain_db": 0.0,
+      "prosody_style": "normal",
+      "channel_quirk": "none",
+      "pause_noise_cats": [
+        "baby_child",
+        "appliance_machine",
+        "phone_signal_alarm"
+      ],
+      "pause_noise_snr_db": 3.0,
+      "pause_bgv_text": "दरवाज़े पर घंटी बजी है, ज़रा देखो कूरियर वाला आया होगा, पार्सल ले लो।",
+      "pause_bgv_voice": "Callirrhoe",
+      "pause_bgv_sir_db": 6.0,
+      "pause_bgv_with_noise_cats": [
+        "phone_signal_alarm",
+        "baby_child"
+      ],
+      "pause_bgv_acoustics": "far_field",
+      "pause_bgv2_text": "",
+      "pause_bgv2_voice": "Orus",
+      "audio_timestamps": {
+        "primary_voice": {
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 17.466,
+          "end_audio_sec": 23.656,
+          "duration_s": 6.19,
+          "voice_islands": [
+            {
+              "start_audio_sec": 17.466,
+              "end_audio_sec": 20.256,
+              "duration_s": 2.79
+            },
+            {
+              "start_audio_sec": 20.596,
+              "end_audio_sec": 23.656,
+              "duration_s": 3.06
+            }
+          ]
+        },
+        "overlap_noise": {
+          "label": "overlap_noise_with_voice",
+          "start_audio_sec": 17.446,
+          "end_audio_sec": 23.676,
+          "duration_s": 6.23,
+          "category": "baby_child",
+          "tag": "<baby crying>+<baby talking>+<child talking>",
+          "snr_db": 6.0
+        },
+        "overlap_background_voice": {
+          "label": "overlap_background_voice_with_voice",
+          "start_audio_sec": 17.446,
+          "end_audio_sec": 21.426,
+          "duration_s": 3.98,
+          "sir_db": 9.0,
+          "speaker": "Leda",
+          "transcript": "मम्मी मेरा स्कूल बैग कहाँ रखा है? मुझे अपनी ड्राइंग बुक नहीं मिल रही है!"
+        },
+        "pause_noise": {
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 24.426,
+          "end_audio_sec": 27.381,
+          "duration_s": 2.955,
+          "category": "baby_child",
+          "tag": "<baby crying>+<baby talking>+<tv sound>"
+        },
+        "pause_background_voice": {
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 28.031,
+          "end_audio_sec": 32.331,
+          "duration_s": 4.3,
+          "acoustics": "far_field",
+          "sir_db": 6.0,
+          "speaker": "Callirrhoe",
+          "transcript": "दरवाज़े पर घंटी बजी है, ज़रा देखो कूरियर वाला आया होगा, पार्सल ले लो।"
+        }
+      }
+    }
+  ],
+  "segments": [
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 1.82,
+      "end": 2.22,
+      "start_audio_sec": 1.82,
+      "end_audio_sec": 2.22,
+      "duration_s": 0.4,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "gap_from_prev_voice_s": null,
+      "gap_to_next_voice_s": 0.36,
+      "segment_id": "s00",
+      "event_id": "s00",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 2.58,
+      "end": 5.66,
+      "start_audio_sec": 2.58,
+      "end_audio_sec": 5.66,
+      "duration_s": 3.08,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "gap_from_prev_voice_s": 0.36,
+      "gap_to_next_voice_s": 0.33,
+      "segment_id": "s01",
+      "event_id": "s01",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 5.99,
+      "end": 8.0,
+      "start_audio_sec": 5.99,
+      "end_audio_sec": 8.0,
+      "duration_s": 2.01,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "gap_from_prev_voice_s": 0.33,
+      "gap_to_next_voice_s": 9.466,
+      "segment_id": "s02",
+      "event_id": "s02",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "appliance_machine",
+      "tag": "<tv sound>+<fan noise>+<child talking>",
+      "overlap_tags": [
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "baby_child:<child talking>",
+        "baby_child:<child crying>",
+        "singing_music:<singing>",
+        "singing_music:<whistling>",
+        "singing_music:<music noise>"
+      ],
+      "start": 8.77,
+      "end": 12.326,
+      "start_audio_sec": 8.77,
+      "end_audio_sec": 12.326,
+      "duration_s": 3.556,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": 5.14,
+      "segment_id": "s03",
+      "event_id": "s03",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 8 dB (tv_radio_playback)",
+      "acoustics": "tv_radio_playback",
+      "overlap_tags": [
+        "appliance_machine:<fan noise>",
+        "appliance_machine:<fan sound>",
+        "appliance_machine:<tv sound>",
+        "singing_music:<whistling>"
+      ],
+      "start": 12.976,
+      "end": 16.796,
+      "start_audio_sec": 12.976,
+      "end_audio_sec": 16.796,
+      "duration_s": 3.82,
+      "clip_start": false,
+      "rel_loudness_db": -8.0,
+      "sir_db": 8.0,
+      "transcript": "अरे रिमोट कहाँ रख दिया? न्यूज़ चैनल लगाओ ज़रा पांच मिनट के लिए।",
+      "gap_from_prev_voice_s": 4.976,
+      "gap_to_next_voice_s": 0.67,
+      "segment_id": "s04",
+      "event_id": "s04",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "noisy_speech",
+      "overlap_tags": [
+        "baby_child:<baby crying>",
+        "baby_child:<baby talking>",
+        "baby_child:<child talking>",
+        "baby_child:<child yelling>",
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "singing_music:<singing>",
+        "singing_music:<whistling>",
+        "singing_music:<music>",
+        "singing_music:<music noise>",
+        "background_voice:SIR 9 dB"
+      ],
+      "start": 17.466,
+      "end": 20.256,
+      "start_audio_sec": 17.466,
+      "end_audio_sec": 20.256,
+      "duration_s": 2.79,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": 9.0,
+      "transcript": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "gap_from_prev_voice_s": 9.466,
+      "gap_to_next_voice_s": 0.34,
+      "segment_id": "s05",
+      "event_id": "s05",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "noisy_speech",
+      "overlap_tags": [
+        "baby_child:<baby crying>",
+        "baby_child:<baby talking>",
+        "baby_child:<child talking>",
+        "baby_child:<child yelling>",
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "singing_music:<singing>",
+        "singing_music:<whistling>",
+        "singing_music:<music>",
+        "singing_music:<music noise>",
+        "background_voice:SIR 9 dB"
+      ],
+      "start": 20.596,
+      "end": 23.656,
+      "start_audio_sec": 20.596,
+      "end_audio_sec": 23.656,
+      "duration_s": 3.06,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": 9.0,
+      "transcript": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "gap_from_prev_voice_s": 0.34,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s06",
+      "event_id": "s06",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "baby_child",
+      "tag": "<baby crying>+<baby talking>+<tv sound>",
+      "overlap_tags": [
+        "baby_child:<baby crying>",
+        "baby_child:<baby talking>",
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "phone_signal_alarm:<bell sound>",
+        "phone_signal_alarm:<notification sound>",
+        "phone_signal_alarm:<phone ringing>"
+      ],
+      "start": 24.426,
+      "end": 27.381,
+      "start_audio_sec": 24.426,
+      "end_audio_sec": 27.381,
+      "duration_s": 2.955,
+      "clip_start": false,
+      "rel_loudness_db": -3.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s07",
+      "event_id": "s07",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 6 dB (far_field)",
+      "acoustics": "far_field",
+      "overlap_tags": [
+        "phone_signal_alarm:<notification sound>",
+        "phone_signal_alarm:<ringing>",
+        "phone_signal_alarm:<phone ringing>",
+        "phone_signal_alarm:<phone beeping>",
+        "baby_child:<baby crying>",
+        "baby_child:<child crying>",
+        "baby_child:<child yelling>"
+      ],
+      "start": 28.031,
+      "end": 32.331,
+      "start_audio_sec": 28.031,
+      "end_audio_sec": 32.331,
+      "duration_s": 4.3,
+      "clip_start": false,
+      "rel_loudness_db": -6.0,
+      "sir_db": 6.0,
+      "transcript": "दरवाज़े पर घंटी बजी है, ज़रा देखो कूरियर वाला आया होगा, पार्सल ले लो।",
+      "gap_from_prev_voice_s": 4.375,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s08",
+      "event_id": "s08",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "appliance_machine",
+      "tag": "<machine noise>+<machine sound>+<tv sound>",
+      "overlap_tags": [
+        "appliance_machine:<machine noise>",
+        "appliance_machine:<machine sound>",
+        "appliance_machine:<tv sound>",
+        "baby_child:<child talking>",
+        "baby_child:<child yelling>",
+        "baby_child:<baby talking>",
+        "singing_music:<singing>",
+        "singing_music:<music>",
+        "singing_music:<whistling>"
+      ],
+      "start": 32.981,
+      "end": 36.547,
+      "start_audio_sec": 32.981,
+      "end_audio_sec": 36.547,
+      "duration_s": 3.566,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 9.325,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s09",
+      "event_id": "s09",
+      "event_type": "noise"
+    }
+  ],
+  "events": [
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 1.82,
+      "end": 2.22,
+      "start_audio_sec": 1.82,
+      "end_audio_sec": 2.22,
+      "duration_s": 0.4,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "gap_from_prev_voice_s": null,
+      "gap_to_next_voice_s": 0.36,
+      "segment_id": "s00",
+      "event_id": "s00",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 2.58,
+      "end": 5.66,
+      "start_audio_sec": 2.58,
+      "end_audio_sec": 5.66,
+      "duration_s": 3.08,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "gap_from_prev_voice_s": 0.36,
+      "gap_to_next_voice_s": 0.33,
+      "segment_id": "s01",
+      "event_id": "s01",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 5.99,
+      "end": 8.0,
+      "start_audio_sec": 5.99,
+      "end_audio_sec": 8.0,
+      "duration_s": 2.01,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हेलो मैम, मैंने पिछले हफ्ते क्रेडिट कार्ड अपग्रेड के लिए अप्लाई किया था, उसका स्टेटस अभी तक पेंडिंग दिखा रहा है।",
+      "gap_from_prev_voice_s": 0.33,
+      "gap_to_next_voice_s": 9.466,
+      "segment_id": "s02",
+      "event_id": "s02",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "appliance_machine",
+      "tag": "<tv sound>+<fan noise>+<child talking>",
+      "overlap_tags": [
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "baby_child:<child talking>",
+        "baby_child:<child crying>",
+        "singing_music:<singing>",
+        "singing_music:<whistling>",
+        "singing_music:<music noise>"
+      ],
+      "start": 8.77,
+      "end": 12.326,
+      "start_audio_sec": 8.77,
+      "end_audio_sec": 12.326,
+      "duration_s": 3.556,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": 5.14,
+      "segment_id": "s03",
+      "event_id": "s03",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 8 dB (tv_radio_playback)",
+      "acoustics": "tv_radio_playback",
+      "overlap_tags": [
+        "appliance_machine:<fan noise>",
+        "appliance_machine:<fan sound>",
+        "appliance_machine:<tv sound>",
+        "singing_music:<whistling>"
+      ],
+      "start": 12.976,
+      "end": 16.796,
+      "start_audio_sec": 12.976,
+      "end_audio_sec": 16.796,
+      "duration_s": 3.82,
+      "clip_start": false,
+      "rel_loudness_db": -8.0,
+      "sir_db": 8.0,
+      "transcript": "अरे रिमोट कहाँ रख दिया? न्यूज़ चैनल लगाओ ज़रा पांच मिनट के लिए।",
+      "gap_from_prev_voice_s": 4.976,
+      "gap_to_next_voice_s": 0.67,
+      "segment_id": "s04",
+      "event_id": "s04",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "noisy_speech",
+      "overlap_tags": [
+        "baby_child:<baby crying>",
+        "baby_child:<baby talking>",
+        "baby_child:<child talking>",
+        "baby_child:<child yelling>",
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "singing_music:<singing>",
+        "singing_music:<whistling>",
+        "singing_music:<music>",
+        "singing_music:<music noise>",
+        "background_voice:SIR 9 dB"
+      ],
+      "start": 17.466,
+      "end": 20.256,
+      "start_audio_sec": 17.466,
+      "end_audio_sec": 20.256,
+      "duration_s": 2.79,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": 9.0,
+      "transcript": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "gap_from_prev_voice_s": 9.466,
+      "gap_to_next_voice_s": 0.34,
+      "segment_id": "s05",
+      "event_id": "s05",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "noisy_speech",
+      "overlap_tags": [
+        "baby_child:<baby crying>",
+        "baby_child:<baby talking>",
+        "baby_child:<child talking>",
+        "baby_child:<child yelling>",
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "singing_music:<singing>",
+        "singing_music:<whistling>",
+        "singing_music:<music>",
+        "singing_music:<music noise>",
+        "background_voice:SIR 9 dB"
+      ],
+      "start": 20.596,
+      "end": 23.656,
+      "start_audio_sec": 20.596,
+      "end_audio_sec": 23.656,
+      "duration_s": 3.06,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": 9.0,
+      "transcript": "हाँ वीडियो केवाईसी तो मैंने बुधवार को ही पूरी कर ली थी, एजेंट ने मेरा आधार और पैन कार्ड दोनों कैमरा पर देखा था।",
+      "gap_from_prev_voice_s": 0.34,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s06",
+      "event_id": "s06",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "baby_child",
+      "tag": "<baby crying>+<baby talking>+<tv sound>",
+      "overlap_tags": [
+        "baby_child:<baby crying>",
+        "baby_child:<baby talking>",
+        "appliance_machine:<tv sound>",
+        "appliance_machine:<fan noise>",
+        "phone_signal_alarm:<bell sound>",
+        "phone_signal_alarm:<notification sound>",
+        "phone_signal_alarm:<phone ringing>"
+      ],
+      "start": 24.426,
+      "end": 27.381,
+      "start_audio_sec": 24.426,
+      "end_audio_sec": 27.381,
+      "duration_s": 2.955,
+      "clip_start": false,
+      "rel_loudness_db": -3.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s07",
+      "event_id": "s07",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 6 dB (far_field)",
+      "acoustics": "far_field",
+      "overlap_tags": [
+        "phone_signal_alarm:<notification sound>",
+        "phone_signal_alarm:<ringing>",
+        "phone_signal_alarm:<phone ringing>",
+        "phone_signal_alarm:<phone beeping>",
+        "baby_child:<baby crying>",
+        "baby_child:<child crying>",
+        "baby_child:<child yelling>"
+      ],
+      "start": 28.031,
+      "end": 32.331,
+      "start_audio_sec": 28.031,
+      "end_audio_sec": 32.331,
+      "duration_s": 4.3,
+      "clip_start": false,
+      "rel_loudness_db": -6.0,
+      "sir_db": 6.0,
+      "transcript": "दरवाज़े पर घंटी बजी है, ज़रा देखो कूरियर वाला आया होगा, पार्सल ले लो।",
+      "gap_from_prev_voice_s": 4.375,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s08",
+      "event_id": "s08",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "appliance_machine",
+      "tag": "<machine noise>+<machine sound>+<tv sound>",
+      "overlap_tags": [
+        "appliance_machine:<machine noise>",
+        "appliance_machine:<machine sound>",
+        "appliance_machine:<tv sound>",
+        "baby_child:<child talking>",
+        "baby_child:<child yelling>",
+        "baby_child:<baby talking>",
+        "singing_music:<singing>",
+        "singing_music:<music>",
+        "singing_music:<whistling>"
+      ],
+      "start": 32.981,
+      "end": 36.547,
+      "start_audio_sec": 32.981,
+      "end_audio_sec": 36.547,
+      "duration_s": 3.566,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 9.325,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s09",
+      "event_id": "s09",
+      "event_type": "noise"
+    }
+  ],
+  "interferer": {
+    "source_id": "gemini-3.8-flash-tts-multimode",
+    "rt60_s": 0.62,
+    "windows": [
+      {
+        "type": "interferer_only",
+        "acoustics": "tv_radio_playback",
+        "start": 12.976,
+        "end": 16.796,
+        "start_audio_sec": 12.976,
+        "end_audio_sec": 16.796,
+        "sir_db": 8.0,
+        "speaker": "Aoede"
+      },
+      {
+        "type": "interferer_overlap",
+        "start": 17.446,
+        "end": 21.426,
+        "start_audio_sec": 17.446,
+        "end_audio_sec": 21.426,
+        "sir_db": 9.0,
+        "speaker": "Leda"
+      },
+      {
+        "type": "interferer_only",
+        "acoustics": "far_field",
+        "start": 28.031,
+        "end": 32.331,
+        "start_audio_sec": 28.031,
+        "end_audio_sec": 32.331,
+        "sir_db": 6.0,
+        "speaker": "Callirrhoe"
+      }
+    ]
+  },
+  "checks": {
+    "warnings": [],
+    "resample_lag_ms": 0.0,
+    "n_clipped_8k": 0,
+    "peak_rescaled": false
+  }
+}

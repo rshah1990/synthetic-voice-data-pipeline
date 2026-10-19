@@ -1,0 +1,966 @@
+{
+  "id": "example_03_hinglish_wind_soft_laugh_cough",
+  "kind": "synthetic_multi_variation_call",
+  "title": "Hinglish Outdoor Commute — Wind Buffeting, Soft Elderly Speech (-4 dB), Mid-Turn Laughs & Bystander Coughs",
+  "failure_focus": "Outdoor wind buffeting (22-210 Hz gusts) + soft slow elderly speech (0.85x, -4.0 dB) + mid-turn user laugh + close-mic bystander cough/throat-clear",
+  "split": "test",
+  "source": {
+    "tts_model": "gemini-3.8-flash-tts",
+    "primary_voice": "Puck",
+    "noise_source": "Bundled CC-BY-4.0 VAANI Stems + Procedural Acoustics",
+    "language": "Hinglish"
+  },
+  "pilot_category": "vehicle_traffic",
+  "native_sr": 16000,
+  "telephony_sr": 8000,
+  "duration_s": 43.201,
+  "target_duration_range_s": {
+    "min_s": 35.0,
+    "max_s": 60.0,
+    "target_avg_s": 45.0
+  },
+  "noise_floor_db": -29.0,
+  "transcript_raw": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na. हाहाहा, अरे वाह! मुझे लगा बैंक ब्रांच जाना पड़ेगा, पर आपने तो फोन पर ही मेरा काम आसान कर दिया! ठीक है जी, बहुत बहुत शुक्रिया, मैं अभी व्हाट्सएप पर रसीद देख लेता हूँ।",
+  "transcript_clean": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na. हाहाहा, अरे वाह! मुझे लगा बैंक ब्रांच जाना पड़ेगा, पर आपने तो फोन पर ही मेरा काम आसान कर दिया! ठीक है जी, बहुत बहुत शुक्रिया, मैं अभी व्हाट्सएप पर रसीद देख लेता हूँ।",
+  "words": [
+    {
+      "text": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "start": 1.82,
+      "end": 4.98,
+      "start_audio_sec": 1.82,
+      "end_audio_sec": 4.98
+    },
+    {
+      "text": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "start": 5.39,
+      "end": 6.79,
+      "start_audio_sec": 5.39,
+      "end_audio_sec": 6.79
+    },
+    {
+      "text": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "start": 7.53,
+      "end": 9.76,
+      "start_audio_sec": 7.53,
+      "end_audio_sec": 9.76
+    },
+    {
+      "text": "हाहाहा, अरे वाह! मुझे लगा बैंक ब्रांच जाना पड़ेगा, पर आपने तो फोन पर ही मेरा काम आसान कर दिया!",
+      "start": 20.555,
+      "end": 25.925,
+      "start_audio_sec": 20.555,
+      "end_audio_sec": 25.925
+    },
+    {
+      "text": "ठीक है जी, बहुत बहुत शुक्रिया, मैं अभी व्हाट्सएप पर रसीद देख लेता हूँ।",
+      "start": 33.95,
+      "end": 37.38,
+      "start_audio_sec": 33.95,
+      "end_audio_sec": 37.38
+    }
+  ],
+  "speech_segments": [
+    [
+      1.82,
+      4.98
+    ],
+    [
+      5.39,
+      6.79
+    ],
+    [
+      7.53,
+      9.76
+    ],
+    [
+      20.555,
+      25.925
+    ],
+    [
+      33.95,
+      37.38
+    ]
+  ],
+  "pure_noise_intervals": [
+    {
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<horn>+<vehicle sound>",
+      "start": 10.53,
+      "end": 13.685,
+      "start_audio_sec": 10.53,
+      "end_audio_sec": 13.685,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "vehicle_traffic",
+      "tag": "<traffic noise>+<horn>+<vehicle sound>",
+      "start": 26.695,
+      "end": 29.37,
+      "start_audio_sec": 26.695,
+      "end_audio_sec": 29.37,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<vehicle sound>+<horn>",
+      "start": 38.15,
+      "end": 41.051,
+      "start_audio_sec": 38.15,
+      "end_audio_sec": 41.051,
+      "event_type": "pure_noise"
+    }
+  ],
+  "noise_events": [
+    {
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<horn>+<traffic noise>",
+      "start": 1.8,
+      "end": 9.78,
+      "start_audio_sec": 1.8,
+      "end_audio_sec": 9.78,
+      "event_type": "overlap_with_voice"
+    },
+    {
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<horn>+<vehicle sound>",
+      "start": 10.53,
+      "end": 13.685,
+      "start_audio_sec": 10.53,
+      "end_audio_sec": 13.685,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "vehicle_traffic",
+      "tag": "<vehicle sound>+<traffic noise>+<horn>",
+      "start": 20.535,
+      "end": 25.945,
+      "start_audio_sec": 20.535,
+      "end_audio_sec": 25.945,
+      "event_type": "overlap_with_voice"
+    },
+    {
+      "category": "vehicle_traffic",
+      "tag": "<traffic noise>+<horn>+<vehicle sound>",
+      "start": 26.695,
+      "end": 29.37,
+      "start_audio_sec": 26.695,
+      "end_audio_sec": 29.37,
+      "event_type": "pure_noise"
+    },
+    {
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<vehicle sound>+<horn>",
+      "start": 38.15,
+      "end": 41.051,
+      "start_audio_sec": 38.15,
+      "end_audio_sec": 41.051,
+      "event_type": "pure_noise"
+    }
+  ],
+  "turns_with_timestamps": [
+    {
+      "text": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "voice_mode": "overlap_noise",
+      "overlap_noise_cats": [
+        "wind_mic_rub",
+        "vehicle_traffic"
+      ],
+      "overlap_snr_db": 6.0,
+      "overlap_bgv_text": "",
+      "overlap_bgv_voice": "Fenrir",
+      "overlap_sir_db": 10.0,
+      "primary_gain_db": -4.0,
+      "prosody_style": "slow_hesitant",
+      "channel_quirk": "none",
+      "pause_noise_cats": [
+        "wind_mic_rub",
+        "vehicle_traffic",
+        "animal"
+      ],
+      "pause_noise_snr_db": 2.0,
+      "pause_bgv_text": "अरे खांसी आ रही है... उहूँ उहूँ... थोड़ा पानी देना भाई!",
+      "pause_bgv_voice": "Fenrir",
+      "pause_bgv_sir_db": 2.0,
+      "pause_bgv_with_noise_cats": [
+        "wind_mic_rub"
+      ],
+      "pause_bgv_acoustics": "bystander_laugh_cough",
+      "pause_bgv2_text": "",
+      "pause_bgv2_voice": "Orus",
+      "audio_timestamps": {
+        "primary_voice": {
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 1.82,
+          "end_audio_sec": 9.76,
+          "duration_s": 7.94,
+          "voice_islands": [
+            {
+              "start_audio_sec": 1.82,
+              "end_audio_sec": 4.98,
+              "duration_s": 3.16
+            },
+            {
+              "start_audio_sec": 5.39,
+              "end_audio_sec": 6.79,
+              "duration_s": 1.4
+            },
+            {
+              "start_audio_sec": 7.53,
+              "end_audio_sec": 9.76,
+              "duration_s": 2.23
+            }
+          ]
+        },
+        "overlap_noise": {
+          "label": "overlap_noise_with_voice",
+          "start_audio_sec": 1.8,
+          "end_audio_sec": 9.78,
+          "duration_s": 7.98,
+          "category": "wind_mic_rub",
+          "tag": "<wind_buffeting>+<horn>+<traffic noise>",
+          "snr_db": 6.0
+        },
+        "overlap_background_voice": null,
+        "pause_noise": {
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 10.53,
+          "end_audio_sec": 13.685,
+          "duration_s": 3.155,
+          "category": "wind_mic_rub",
+          "tag": "<wind_buffeting>+<horn>+<vehicle sound>"
+        },
+        "pause_background_voice": {
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 14.335,
+          "end_audio_sec": 19.885,
+          "duration_s": 5.55,
+          "acoustics": "bystander_laugh_cough",
+          "sir_db": 2.0,
+          "speaker": "Fenrir",
+          "transcript": "अरे खांसी आ रही है... उहूँ उहूँ... थोड़ा पानी देना भाई!"
+        }
+      }
+    },
+    {
+      "text": "हाहाहा, अरे वाह! मुझे लगा बैंक ब्रांच जाना पड़ेगा, पर आपने तो फोन पर ही मेरा काम आसान कर दिया!",
+      "voice_mode": "overlap_noise",
+      "overlap_noise_cats": [
+        "vehicle_traffic",
+        "animal"
+      ],
+      "overlap_snr_db": 7.0,
+      "overlap_bgv_text": "",
+      "overlap_bgv_voice": "Fenrir",
+      "overlap_sir_db": 10.0,
+      "primary_gain_db": 0.0,
+      "prosody_style": "laugh_chuckle",
+      "channel_quirk": "none",
+      "pause_noise_cats": [
+        "vehicle_traffic",
+        "phone_signal_alarm",
+        "animal"
+      ],
+      "pause_noise_snr_db": 4.0,
+      "pause_bgv_text": "चाय गरम चाय! समोसा वड़ा पाव गरम है भाई साहब!",
+      "pause_bgv_voice": "Orus",
+      "pause_bgv_sir_db": 6.0,
+      "pause_bgv_with_noise_cats": [
+        "vehicle_traffic"
+      ],
+      "pause_bgv_acoustics": "far_field",
+      "pause_bgv2_text": "",
+      "pause_bgv2_voice": "Orus",
+      "audio_timestamps": {
+        "primary_voice": {
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 20.555,
+          "end_audio_sec": 25.925,
+          "duration_s": 5.37,
+          "voice_islands": [
+            {
+              "start_audio_sec": 20.555,
+              "end_audio_sec": 25.925,
+              "duration_s": 5.37
+            }
+          ]
+        },
+        "overlap_noise": {
+          "label": "overlap_noise_with_voice",
+          "start_audio_sec": 20.535,
+          "end_audio_sec": 25.945,
+          "duration_s": 5.41,
+          "category": "vehicle_traffic",
+          "tag": "<vehicle sound>+<traffic noise>+<horn>",
+          "snr_db": 7.0
+        },
+        "overlap_background_voice": null,
+        "pause_noise": {
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 26.695,
+          "end_audio_sec": 29.37,
+          "duration_s": 2.675,
+          "category": "vehicle_traffic",
+          "tag": "<traffic noise>+<horn>+<vehicle sound>"
+        },
+        "pause_background_voice": {
+          "label": "background_voice",
+          "should_trigger": false,
+          "start_audio_sec": 30.02,
+          "end_audio_sec": 33.28,
+          "duration_s": 3.26,
+          "acoustics": "far_field",
+          "sir_db": 6.0,
+          "speaker": "Orus",
+          "transcript": "चाय गरम चाय! समोसा वड़ा पाव गरम है भाई साहब!"
+        }
+      }
+    },
+    {
+      "text": "ठीक है जी, बहुत बहुत शुक्रिया, मैं अभी व्हाट्सएप पर रसीद देख लेता हूँ।",
+      "voice_mode": "clean",
+      "overlap_noise_cats": [],
+      "overlap_snr_db": 8.0,
+      "overlap_bgv_text": "",
+      "overlap_bgv_voice": "Fenrir",
+      "overlap_sir_db": 10.0,
+      "primary_gain_db": 0.0,
+      "prosody_style": "normal",
+      "channel_quirk": "none",
+      "pause_noise_cats": [
+        "wind_mic_rub",
+        "vehicle_traffic"
+      ],
+      "pause_noise_snr_db": 4.0,
+      "pause_bgv_text": "",
+      "pause_bgv_voice": "Aoede",
+      "pause_bgv_sir_db": 10.0,
+      "pause_bgv_with_noise_cats": [],
+      "pause_bgv_acoustics": "far_field",
+      "pause_bgv2_text": "",
+      "pause_bgv2_voice": "Orus",
+      "audio_timestamps": {
+        "primary_voice": {
+          "label": "voice",
+          "should_trigger": true,
+          "start_audio_sec": 33.95,
+          "end_audio_sec": 37.38,
+          "duration_s": 3.43,
+          "voice_islands": [
+            {
+              "start_audio_sec": 33.95,
+              "end_audio_sec": 37.38,
+              "duration_s": 3.43
+            }
+          ]
+        },
+        "overlap_noise": null,
+        "overlap_background_voice": null,
+        "pause_noise": {
+          "label": "noise",
+          "should_trigger": false,
+          "start_audio_sec": 38.15,
+          "end_audio_sec": 41.051,
+          "duration_s": 2.901,
+          "category": "wind_mic_rub",
+          "tag": "<wind_buffeting>+<vehicle sound>+<horn>"
+        },
+        "pause_background_voice": null
+      }
+    }
+  ],
+  "segments": [
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "slow_hesitant_speech",
+      "overlap_tags": [
+        "soft_user_voice:-4 dB",
+        "prosody:slow_hesitant",
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<vehicle horn>"
+      ],
+      "start": 1.82,
+      "end": 4.98,
+      "start_audio_sec": 1.82,
+      "end_audio_sec": 4.98,
+      "duration_s": 3.16,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "transcript": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "prosody_style": "slow_hesitant",
+      "gap_from_prev_voice_s": null,
+      "gap_to_next_voice_s": 0.41,
+      "segment_id": "s00",
+      "event_id": "s00",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "slow_hesitant_speech",
+      "overlap_tags": [
+        "soft_user_voice:-4 dB",
+        "prosody:slow_hesitant",
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<vehicle horn>"
+      ],
+      "start": 5.39,
+      "end": 6.79,
+      "start_audio_sec": 5.39,
+      "end_audio_sec": 6.79,
+      "duration_s": 1.4,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "transcript": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "prosody_style": "slow_hesitant",
+      "gap_from_prev_voice_s": 0.41,
+      "gap_to_next_voice_s": 0.74,
+      "segment_id": "s01",
+      "event_id": "s01",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "slow_hesitant_speech",
+      "overlap_tags": [
+        "soft_user_voice:-4 dB",
+        "prosody:slow_hesitant",
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<vehicle horn>"
+      ],
+      "start": 7.53,
+      "end": 9.76,
+      "start_audio_sec": 7.53,
+      "end_audio_sec": 9.76,
+      "duration_s": 2.23,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "transcript": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "prosody_style": "slow_hesitant",
+      "gap_from_prev_voice_s": 0.74,
+      "gap_to_next_voice_s": 10.795,
+      "segment_id": "s02",
+      "event_id": "s02",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<horn>+<vehicle sound>",
+      "overlap_tags": [
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<traffic noise>",
+        "animal:<bird sound>",
+        "animal:<bird squawking>",
+        "animal:<insect noise>"
+      ],
+      "start": 10.53,
+      "end": 13.685,
+      "start_audio_sec": 10.53,
+      "end_audio_sec": 13.685,
+      "duration_s": 3.155,
+      "clip_start": false,
+      "rel_loudness_db": -2.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": 6.87,
+      "segment_id": "s03",
+      "event_id": "s03",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 2 dB (bystander_laugh_cough)",
+      "acoustics": "bystander_laugh_cough",
+      "overlap_tags": [
+        "wind_mic_rub:<wind_buffeting>"
+      ],
+      "start": 14.335,
+      "end": 19.885,
+      "start_audio_sec": 14.335,
+      "end_audio_sec": 19.885,
+      "duration_s": 5.55,
+      "clip_start": false,
+      "rel_loudness_db": -2.0,
+      "sir_db": 2.0,
+      "transcript": "अरे खांसी आ रही है... उहूँ उहूँ... थोड़ा पानी देना भाई!",
+      "gap_from_prev_voice_s": 4.575,
+      "gap_to_next_voice_s": 0.67,
+      "segment_id": "s04",
+      "event_id": "s04",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "laugh_speech",
+      "overlap_tags": [
+        "prosody:laugh_chuckle",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle horn>",
+        "animal:<animal sound>",
+        "animal:<bird squawking>",
+        "animal:<barking>",
+        "animal:<bird sound>"
+      ],
+      "start": 20.555,
+      "end": 25.925,
+      "start_audio_sec": 20.555,
+      "end_audio_sec": 25.925,
+      "duration_s": 5.37,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हाहाहा, अरे वाह! मुझे लगा बैंक ब्रांच जाना पड़ेगा, पर आपने तो फोन पर ही मेरा काम आसान कर दिया!",
+      "prosody_style": "laugh_chuckle",
+      "gap_from_prev_voice_s": 10.795,
+      "gap_to_next_voice_s": 8.025,
+      "segment_id": "s05",
+      "event_id": "s05",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "vehicle_traffic",
+      "tag": "<traffic noise>+<horn>+<vehicle sound>",
+      "overlap_tags": [
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle sound>",
+        "phone_signal_alarm:<notification sound>",
+        "phone_signal_alarm:<ringing>",
+        "phone_signal_alarm:<bell sound>",
+        "animal:<insect noise>",
+        "animal:<cow sound>",
+        "animal:<bird sound>",
+        "animal:<barking>"
+      ],
+      "start": 26.695,
+      "end": 29.37,
+      "start_audio_sec": 26.695,
+      "end_audio_sec": 29.37,
+      "duration_s": 2.675,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": 4.58,
+      "segment_id": "s06",
+      "event_id": "s06",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 6 dB (far_field)",
+      "acoustics": "far_field",
+      "overlap_tags": [
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle horn>",
+        "vehicle_traffic:<vehicle sound>"
+      ],
+      "start": 30.02,
+      "end": 33.28,
+      "start_audio_sec": 30.02,
+      "end_audio_sec": 33.28,
+      "duration_s": 3.26,
+      "clip_start": false,
+      "rel_loudness_db": -6.0,
+      "sir_db": 6.0,
+      "transcript": "चाय गरम चाय! समोसा वड़ा पाव गरम है भाई साहब!",
+      "gap_from_prev_voice_s": 4.095,
+      "gap_to_next_voice_s": 0.67,
+      "segment_id": "s07",
+      "event_id": "s07",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 33.95,
+      "end": 37.38,
+      "start_audio_sec": 33.95,
+      "end_audio_sec": 37.38,
+      "duration_s": 3.43,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "ठीक है जी, बहुत बहुत शुक्रिया, मैं अभी व्हाट्सएप पर रसीद देख लेता हूँ।",
+      "gap_from_prev_voice_s": 8.025,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s08",
+      "event_id": "s08",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<vehicle sound>+<horn>",
+      "overlap_tags": [
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>"
+      ],
+      "start": 38.15,
+      "end": 41.051,
+      "start_audio_sec": 38.15,
+      "end_audio_sec": 41.051,
+      "duration_s": 2.901,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s09",
+      "event_id": "s09",
+      "event_type": "noise"
+    }
+  ],
+  "events": [
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "slow_hesitant_speech",
+      "overlap_tags": [
+        "soft_user_voice:-4 dB",
+        "prosody:slow_hesitant",
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<vehicle horn>"
+      ],
+      "start": 1.82,
+      "end": 4.98,
+      "start_audio_sec": 1.82,
+      "end_audio_sec": 4.98,
+      "duration_s": 3.16,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "transcript": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "prosody_style": "slow_hesitant",
+      "gap_from_prev_voice_s": null,
+      "gap_to_next_voice_s": 0.41,
+      "segment_id": "s00",
+      "event_id": "s00",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "slow_hesitant_speech",
+      "overlap_tags": [
+        "soft_user_voice:-4 dB",
+        "prosody:slow_hesitant",
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<vehicle horn>"
+      ],
+      "start": 5.39,
+      "end": 6.79,
+      "start_audio_sec": 5.39,
+      "end_audio_sec": 6.79,
+      "duration_s": 1.4,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "transcript": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "prosody_style": "slow_hesitant",
+      "gap_from_prev_voice_s": 0.41,
+      "gap_to_next_voice_s": 0.74,
+      "segment_id": "s01",
+      "event_id": "s01",
+      "event_type": "voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "slow_hesitant_speech",
+      "overlap_tags": [
+        "soft_user_voice:-4 dB",
+        "prosody:slow_hesitant",
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<vehicle horn>"
+      ],
+      "start": 7.53,
+      "end": 9.76,
+      "start_audio_sec": 7.53,
+      "end_audio_sec": 9.76,
+      "duration_s": 2.23,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "transcript": "Beta, mera pension account statement abhi tak email par nahi aaya hai, zara dheere se check karke batao na.",
+      "prosody_style": "slow_hesitant",
+      "gap_from_prev_voice_s": 0.74,
+      "gap_to_next_voice_s": 10.795,
+      "segment_id": "s02",
+      "event_id": "s02",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<horn>+<vehicle sound>",
+      "overlap_tags": [
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<traffic noise>",
+        "animal:<bird sound>",
+        "animal:<bird squawking>",
+        "animal:<insect noise>"
+      ],
+      "start": 10.53,
+      "end": 13.685,
+      "start_audio_sec": 10.53,
+      "end_audio_sec": 13.685,
+      "duration_s": 3.155,
+      "clip_start": false,
+      "rel_loudness_db": -2.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": 6.87,
+      "segment_id": "s03",
+      "event_id": "s03",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 2 dB (bystander_laugh_cough)",
+      "acoustics": "bystander_laugh_cough",
+      "overlap_tags": [
+        "wind_mic_rub:<wind_buffeting>"
+      ],
+      "start": 14.335,
+      "end": 19.885,
+      "start_audio_sec": 14.335,
+      "end_audio_sec": 19.885,
+      "duration_s": 5.55,
+      "clip_start": false,
+      "rel_loudness_db": -2.0,
+      "sir_db": 2.0,
+      "transcript": "अरे खांसी आ रही है... उहूँ उहूँ... थोड़ा पानी देना भाई!",
+      "gap_from_prev_voice_s": 4.575,
+      "gap_to_next_voice_s": 0.67,
+      "segment_id": "s04",
+      "event_id": "s04",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "laugh_speech",
+      "overlap_tags": [
+        "prosody:laugh_chuckle",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle horn>",
+        "animal:<animal sound>",
+        "animal:<bird squawking>",
+        "animal:<barking>",
+        "animal:<bird sound>"
+      ],
+      "start": 20.555,
+      "end": 25.925,
+      "start_audio_sec": 20.555,
+      "end_audio_sec": 25.925,
+      "duration_s": 5.37,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "हाहाहा, अरे वाह! मुझे लगा बैंक ब्रांच जाना पड़ेगा, पर आपने तो फोन पर ही मेरा काम आसान कर दिया!",
+      "prosody_style": "laugh_chuckle",
+      "gap_from_prev_voice_s": 10.795,
+      "gap_to_next_voice_s": 8.025,
+      "segment_id": "s05",
+      "event_id": "s05",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "vehicle_traffic",
+      "tag": "<traffic noise>+<horn>+<vehicle sound>",
+      "overlap_tags": [
+        "vehicle_traffic:<traffic noise>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle sound>",
+        "phone_signal_alarm:<notification sound>",
+        "phone_signal_alarm:<ringing>",
+        "phone_signal_alarm:<bell sound>",
+        "animal:<insect noise>",
+        "animal:<cow sound>",
+        "animal:<bird sound>",
+        "animal:<barking>"
+      ],
+      "start": 26.695,
+      "end": 29.37,
+      "start_audio_sec": 26.695,
+      "end_audio_sec": 29.37,
+      "duration_s": 2.675,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": 4.58,
+      "segment_id": "s06",
+      "event_id": "s06",
+      "event_type": "noise"
+    },
+    {
+      "label": "background_voice",
+      "should_trigger": false,
+      "category": "background_voice",
+      "tag": "SIR 6 dB (far_field)",
+      "acoustics": "far_field",
+      "overlap_tags": [
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<vehicle horn>",
+        "vehicle_traffic:<vehicle sound>"
+      ],
+      "start": 30.02,
+      "end": 33.28,
+      "start_audio_sec": 30.02,
+      "end_audio_sec": 33.28,
+      "duration_s": 3.26,
+      "clip_start": false,
+      "rel_loudness_db": -6.0,
+      "sir_db": 6.0,
+      "transcript": "चाय गरम चाय! समोसा वड़ा पाव गरम है भाई साहब!",
+      "gap_from_prev_voice_s": 4.095,
+      "gap_to_next_voice_s": 0.67,
+      "segment_id": "s07",
+      "event_id": "s07",
+      "event_type": "background_voice"
+    },
+    {
+      "label": "voice",
+      "should_trigger": true,
+      "category": "user_voice",
+      "tag": "clean_speech",
+      "overlap_tags": [],
+      "start": 33.95,
+      "end": 37.38,
+      "start_audio_sec": 33.95,
+      "end_audio_sec": 37.38,
+      "duration_s": 3.43,
+      "clip_start": false,
+      "rel_loudness_db": 0.0,
+      "sir_db": null,
+      "transcript": "ठीक है जी, बहुत बहुत शुक्रिया, मैं अभी व्हाट्सएप पर रसीद देख लेता हूँ।",
+      "gap_from_prev_voice_s": 8.025,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s08",
+      "event_id": "s08",
+      "event_type": "voice"
+    },
+    {
+      "label": "noise",
+      "should_trigger": false,
+      "category": "wind_mic_rub",
+      "tag": "<wind_buffeting>+<vehicle sound>+<horn>",
+      "overlap_tags": [
+        "wind_mic_rub:<wind_buffeting>",
+        "vehicle_traffic:<vehicle sound>",
+        "vehicle_traffic:<horn>",
+        "vehicle_traffic:<traffic noise>"
+      ],
+      "start": 38.15,
+      "end": 41.051,
+      "start_audio_sec": 38.15,
+      "end_audio_sec": 41.051,
+      "duration_s": 2.901,
+      "clip_start": false,
+      "rel_loudness_db": -4.0,
+      "sir_db": null,
+      "gap_from_prev_voice_s": 0.77,
+      "gap_to_next_voice_s": null,
+      "segment_id": "s09",
+      "event_id": "s09",
+      "event_type": "noise"
+    }
+  ],
+  "interferer": {
+    "source_id": "gemini-3.8-flash-tts-multimode",
+    "rt60_s": 0.45,
+    "windows": [
+      {
+        "type": "interferer_only",
+        "acoustics": "bystander_laugh_cough",
+        "start": 14.335,
+        "end": 19.885,
+        "start_audio_sec": 14.335,
+        "end_audio_sec": 19.885,
+        "sir_db": 2.0,
+        "speaker": "Fenrir"
+      },
+      {
+        "type": "interferer_only",
+        "acoustics": "far_field",
+        "start": 30.02,
+        "end": 33.28,
+        "start_audio_sec": 30.02,
+        "end_audio_sec": 33.28,
+        "sir_db": 6.0,
+        "speaker": "Orus"
+      }
+    ]
+  },
+  "checks": {
+    "warnings": [],
+    "resample_lag_ms": 0.0,
+    "n_clipped_8k": 0,
+    "peak_rescaled": true
+  }
+}

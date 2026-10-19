@@ -11,7 +11,7 @@ Covers all 6 orthogonal dimensions of real-world telephony & conversational audi
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, fields
 import json
 from pathlib import Path
 from typing import Any
@@ -60,7 +60,11 @@ class ScenarioSpec:
 
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> "ScenarioSpec":
-        turns = [CallTurnSpec(**t) for t in d.get("turns", [])]
+        valid_turn_keys = {f.name for f in fields(CallTurnSpec)}
+        turns = [
+            CallTurnSpec(**{k: v for k, v in t.items() if k in valid_turn_keys})
+            for t in d.get("turns", [])
+        ]
         return cls(
             cid=d["cid"],
             title=d.get("title", d["cid"]),

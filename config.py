@@ -38,15 +38,13 @@ GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", os.getenv("GOOGLE_API_KEY", ""
 # Primary TTS Model: Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`)
 TTS_MODEL_ID: str = os.getenv("TTS_MODEL_ID", "gemini-3.8-flash-tts")
 FALLBACK_TTS_MODELS: list[str] = [
-    "gemini-2.5-flash-preview-tts",
-    "gemini-2.5-pro-preview-tts",
+    "gemini-3.8-flash-tts",
 ]
 
-# LLM Model used when dynamically generating new multi-turn conversation scripts
+# Default LLM Model used when dynamically generating new multi-turn conversation scripts: Gemini 3.8 Flash (`gemini-3.8-flash`)
 SCENARIO_GENERATOR_MODEL_ID: str = os.getenv("SCENARIO_GENERATOR_MODEL_ID", "gemini-3.8-flash")
 FALLBACK_SCENARIO_MODELS: list[str] = [
-    "gemini-3.5-flash",
-    "gemini-2.5-flash",
+    "gemini-3.8-flash",
 ]
 
 # Concurrency & Retry Settings for TTS Generation
