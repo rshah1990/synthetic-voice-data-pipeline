@@ -176,10 +176,36 @@ Return STRICTLY a valid JSON object with key "scenarios" containing a list of sc
     raise RuntimeError(f"Failed to generate scenarios via LLM: {last_err}")
 
 
+def get_core_27_scenarios() -> list[ScenarioSpec]:
+    """Return the 27-call core 24-Indian-language synthetic call suite (`synth_01` through `synth_27`, ~2–3 mins each)."""
+    from src.synthetic_core10_scenarios import get_core_10_scenarios
+    from src.synthetic_indian_scenarios import get_extra_indian_scenarios
+
+    scenarios: list[ScenarioSpec] = []
+    scenarios.extend(get_core_10_scenarios(ScenarioSpec, CallTurnSpec))
+    scenarios.extend(get_extra_indian_scenarios(ScenarioSpec, CallTurnSpec))
+    return scenarios
+
+
+def get_edge_10_scenarios() -> list[ScenarioSpec]:
+    """Return the 10-call conversational, paralinguistic, emotional & hardware edge-case suite (`synth_28` through `synth_37`, ~2+ mins each)."""
+    from src.synthetic_edge_variation_scenarios import get_edge_variation_scenarios
+
+    return list(get_edge_variation_scenarios(ScenarioSpec, CallTurnSpec))
+
+
+def get_full_37_scenarios() -> list[ScenarioSpec]:
+    """Return all 37 synthetic scenarios (`synth_01`..`synth_27` core 24-language suite + `synth_28`..`synth_37` edge-variation suite)."""
+    return get_core_27_scenarios() + get_edge_10_scenarios()
+
+
 def get_test_showcase_scenarios() -> list[ScenarioSpec]:
-    """5 Showcase Scenarios exercising EVERY acoustic, prosodic, emotional, paralinguistic,
-    and hardware channel variation in ~30–45s per clip so the customer can quickly inspect
-    and listen to all variations."""
+    """Default preset returning all 37 multi-variation synthetic calls (`synth_01` through `synth_37`)."""
+    return get_full_37_scenarios()
+
+
+def get_quick_5_scenarios() -> list[ScenarioSpec]:
+    """5 Short Showcase Scenarios (~35–50s each) for quick smoke testing."""
     return [
         # -------------------------------------------------------------------
         # Example 1: Hindi Speakerphone Verification — Micro-Utterances, Bot Echo & Bystander Backchannels

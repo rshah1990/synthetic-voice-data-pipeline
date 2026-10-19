@@ -30,6 +30,10 @@ from src.acoustics import load_noise_bank
 from src.composer import build_scenario_call, write_dataset_outputs
 from src.scenarios import (
     generate_scenarios_via_llm,
+    get_core_27_scenarios,
+    get_edge_10_scenarios,
+    get_full_37_scenarios,
+    get_quick_5_scenarios,
     get_test_showcase_scenarios,
     load_scenarios_from_json,
 )
@@ -47,9 +51,9 @@ def parse_args() -> argparse.Namespace:
     )
     ap.add_argument(
         "--preset",
-        choices=["showcase"],
-        default="showcase",
-        help="Built-in scenario preset to run when --scenarios-file is not provided",
+        choices=["full", "showcase", "core27", "edge10", "quick5"],
+        default="full",
+        help="Built-in scenario preset to run: 'full' (all 37 calls, default), 'core27' (27 24-lang calls), 'edge10' (10 edge-case calls), 'quick5' (5 short clips)",
     )
     ap.add_argument(
         "--scenarios-file",
@@ -129,8 +133,14 @@ def main() -> None:
         scenarios = generate_scenarios_via_llm(cfg, num_scenarios=args.generate_scenarios)
     elif args.scenarios_file:
         scenarios = load_scenarios_from_json(args.scenarios_file)
+    elif args.preset == "core27":
+        scenarios = get_core_27_scenarios()
+    elif args.preset == "edge10":
+        scenarios = get_edge_10_scenarios()
+    elif args.preset == "quick5":
+        scenarios = get_quick_5_scenarios()
     else:
-        scenarios = get_test_showcase_scenarios()
+        scenarios = get_full_37_scenarios()
 
     if args.scenarios:
         wanted = set(args.scenarios)

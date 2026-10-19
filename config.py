@@ -106,17 +106,16 @@ ENABLE_TTS_STYLE_PROMPTING: bool = False
 # 3. CONVERSATION DURATION RANGE & TIMING GUARD VARIABLES
 # ==============================================================================
 # Target duration range (in seconds) for each generated voice conversation:
-#   - Default Showcase / Short Call Range: `35.0s` to `60.0s` (avg ~`45.0s`)
-#   - Standard Production Call Range: set e.g. `120.0s` to `240.0s` (2 to 4 minutes, avg ~`180.0s`)
-MIN_CONVERSATION_DURATION_S: float = float(os.getenv("MIN_CONVERSATION_DURATION_S", "35.0"))
-MAX_CONVERSATION_DURATION_S: float = float(os.getenv("MAX_CONVERSATION_DURATION_S", "60.0"))
+#   - Default 2-to-3 Minute VAD Call Range: `120.0s` to `180.0s` (avg ~`145.0s` / 2.4 mins)
+MIN_CONVERSATION_DURATION_S: float = float(os.getenv("MIN_CONVERSATION_DURATION_S", "120.0"))
+MAX_CONVERSATION_DURATION_S: float = float(os.getenv("MAX_CONVERSATION_DURATION_S", "180.0"))
 TARGET_AVG_CONVERSATION_DURATION_S: float = float(
-    os.getenv("TARGET_AVG_CONVERSATION_DURATION_S", "45.0")
+    os.getenv("TARGET_AVG_CONVERSATION_DURATION_S", "145.0")
 )
 
 # Duration range for each pure multi-noise listening window (`pause_noise`) between turns
-PAUSE_NOISE_BURST_MIN_S: float = 2.40
-PAUSE_NOISE_BURST_MAX_S: float = 3.60
+PAUSE_NOISE_BURST_MIN_S: float = 3.00
+PAUSE_NOISE_BURST_MAX_S: float = 4.20
 
 # Scene timing guards between user speech turns, noise bursts, and bystander voice windows
 INITIAL_AMBIENT_LEAD_IN_S: float = 1.80

@@ -34,9 +34,10 @@ def test_config_loads_yaml():
     assert "conversational audio dataset architect" in cfg.scenario_generation_system_prompt
     assert "multilingual voice actor" in cfg.tts_director_system_prompt
     assert "angry_shout" in cfg.tts_prosody_style_instructions
-    assert cfg.min_conversation_duration_s == 35.0
-    assert cfg.max_conversation_duration_s == 60.0
-    assert cfg.target_avg_conversation_duration_s == 45.0
+    assert cfg.min_conversation_duration_s == 120.0
+    assert cfg.max_conversation_duration_s == 180.0
+    assert cfg.target_avg_conversation_duration_s == 145.0
+    assert len(get_test_showcase_scenarios()) == 37
 
 
 def test_noise_bank_and_acoustics():

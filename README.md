@@ -135,26 +135,21 @@ All variables are exposed in both [`config.py`](config.py) and [`configs/pipelin
    - `scenario_generation_system_prompt`: System prompt instructing the default LLM (**`gemini-3.8-flash`**) how to author multi-turn telephony scripts across all 24 languages, prosodic variations, hardware quirks, and competing background speakers.
    - `tts_director_system_prompt` & `tts_prosody_style_instructions`: Expressive voice-acting instructions (`normal`, `short_micro`, `angry_shout`, `fast_panicked`, `slow_hesitant`, `laugh_chuckle`, `hesitation_stutter`) optionally prepended to `gemini-3.8-flash-tts` requests when `enable_tts_style_prompting: true`.
 2. **`conversation_duration`**:
-   - `min_conversation_duration_s` (default: `35.0` seconds)
-   - `max_conversation_duration_s` (default: `60.0` seconds)
-   - `target_avg_conversation_duration_s` (default: `45.0` seconds)
-   - `pause_noise_burst_min_s` / `pause_noise_burst_max_s` (`2.4s` – `3.6s`)
+   - `min_conversation_duration_s` (default: `120.0` seconds / 2.0 mins)
+   - `max_conversation_duration_s` (default: `180.0` seconds / 3.0 mins)
+   - `target_avg_conversation_duration_s` (default: `145.0` seconds / ~2.4 mins)
+   - `pause_noise_burst_min_s` / `pause_noise_burst_max_s` (`3.0s` – `4.2s`)
    - Every generated call is automatically padded or trimmed so its total duration stays within `[min_conversation_duration_s, max_conversation_duration_s]` and records `target_duration_range_s` in `ground_truth/<id>.json` and `data_summary.md`.
 
 ---
 
-## Bundled Example VAD Test Dataset (`output_dataset/`) & Ground-Truth Timestamps
+## Bundled 37-Call VAD Test Dataset (`output_dataset/`) & Ground-Truth Timestamps
 
-This repository includes **5 ready-to-use multi-variation test conversations (`215.0 seconds / 3.58 minutes` total)** in [`output_dataset/`](output_dataset/) at both **16 kHz wideband** ([`output_dataset/audio_16k/`](output_dataset/audio_16k/)) and **8 kHz telephony** ([`output_dataset/audio_8k/`](output_dataset/audio_8k/)) along with exact sub-10ms ground-truth JSON annotations showing **`start_audio_sec`** and **`end_audio_sec`** for every `voice` (`should_trigger: true`), `noise` (`should_trigger: false`), and `background_voice` (`should_trigger: false`) segment:
+This repository includes **all 37 multi-variation synthetic test conversations (`synth_01` through `synth_37`, `5261.3 seconds / 87.69 minutes` total, `120.2s – 179.7s` per call, avg `142.2s`)** in [`output_dataset/`](output_dataset/) at both **16 kHz wideband** ([`output_dataset/audio_16k/`](output_dataset/audio_16k/)) and **8 kHz telephony** ([`output_dataset/audio_8k/`](output_dataset/audio_8k/)) along with exact sub-10ms ground-truth JSON annotations showing **`start_audio_sec`** and **`end_audio_sec`** for every `voice` (`should_trigger: true`), `noise` (`should_trigger: false`), and `background_voice` (`should_trigger: false`) segment:
 
-- **Summary & Per-Call Segment Timelines**: [`output_dataset/data_summary.md`](output_dataset/data_summary.md)
-- **Scenarios with Turn & Segment Timestamps (`start_audio_sec` / `end_audio_sec`)**: [`output_dataset/scenarios_with_timestamps.json`](output_dataset/scenarios_with_timestamps.json) (and [`examples/custom_scenarios.json`](examples/custom_scenarios.json))
-- **Per-Call Ground-Truth JSONs**:
-  - [`output_dataset/ground_truth/example_01_hindi_micro_bot_echo_backchannels.json`](output_dataset/ground_truth/example_01_hindi_micro_bot_echo_backchannels.json) (`49.6s`, Hindi)
-  - [`output_dataset/ground_truth/example_02_english_emotion_clipping_packet_loss.json`](output_dataset/ground_truth/example_02_english_emotion_clipping_packet_loss.json) (`46.4s`, Indian English)
-  - [`output_dataset/ground_truth/example_03_hinglish_wind_soft_laugh_cough.json`](output_dataset/ground_truth/example_03_hinglish_wind_soft_laugh_cough.json) (`43.2s`, Hinglish)
-  - [`output_dataset/ground_truth/example_04_hindi_home_tv_kids_music.json`](output_dataset/ground_truth/example_04_hindi_home_tv_kids_music.json) (`38.7s`, Hindi)
-  - [`output_dataset/ground_truth/example_05_tamil_multilingual_variations.json`](output_dataset/ground_truth/example_05_tamil_multilingual_variations.json) (`37.0s`, Tamil)
+- **Summary & Per-Call Segment Timelines (`synth_01`–`synth_37`)**: [`output_dataset/data_summary.md`](output_dataset/data_summary.md)
+- **All 37 Scenarios with Turn & Segment Timestamps (`start_audio_sec` / `end_audio_sec`)**: [`output_dataset/scenarios_with_timestamps.json`](output_dataset/scenarios_with_timestamps.json) (and single-call template in [`examples/custom_scenarios.json`](examples/custom_scenarios.json))
+- **Per-Call Ground-Truth JSONs (`37 files`)**: [`output_dataset/ground_truth/`](output_dataset/ground_truth/) (`synth_01_roadside_traffic.json` through `synth_37_hinglish_all_hazards_gauntlet.json`, covering all 24 Indian languages + the 10 conversational, paralinguistic, emotional & hardware edge-case calls)
 
 ---
 

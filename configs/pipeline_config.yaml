@@ -63,21 +63,19 @@ system_prompts:
     hesitation_stutter: "Speak with natural mid-thought hesitation, pausing briefly as if recalling a detail."
 
 conversation_duration:
-  # Target duration range (in seconds) for each generated voice conversation:
-  # - Short / Showcase range: 35.0s to 60.0s (target avg: 45.0s)
-  # - Long-form production call range: set e.g. 120.0s to 240.0s (target avg: 180.0s)
-  min_conversation_duration_s: 35.0
-  max_conversation_duration_s: 60.0
-  target_avg_conversation_duration_s: 45.0
-  pause_noise_burst_min_s: 2.40
-  pause_noise_burst_max_s: 3.60
+  # Target duration range (2 to 3 minutes = 120.0s to 180.0s, target avg: 145.0s) for each generated voice conversation:
+  min_conversation_duration_s: 120.0
+  max_conversation_duration_s: 180.0
+  target_avg_conversation_duration_s: 145.0
+  pause_noise_burst_min_s: 3.00
+  pause_noise_burst_max_s: 4.20
 
 audio:
   native_sr: 16000
   telephony_sr: 8000
   export_8khz_telephony: true
   export_16khz_native: true
-  export_isolated_stems: true  # Also exports isolated primary_voice / bgv / noise / ambient stems
+  export_isolated_stems: false  # Set true to also export isolated primary_voice / bgv / noise / ambient stems
   target_voice_rms: 0.11       # -19.2 dBFS nominal primary speech RMS
   peak_ceiling: 0.96           # Peak limiter ceiling to prevent digital clipping on mix
 
